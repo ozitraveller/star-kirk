@@ -1,0 +1,38 @@
+openbox
+obconf
+obmenu
+tint2
+
+connman
+connman-ui
+
+# wicd
+
+hsetroot
+
+xfce4-terminal
+# rxvt-unicode
+# compton
+arandr
+lxappearance
+lxtask
+gmrun
+geany
+
+lsof
+
+thunar
+thunar-data
+thunar-volman
+thunar-archive-plugin
+thunar-media-tags-plugin
+# thunar-actions-plugin
+tumbler
+
+yad
+
+# pmount
+# gvfs-backends
+# gvfs-fuse
+
+mpv

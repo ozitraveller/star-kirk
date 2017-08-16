@@ -1,0 +1,190 @@
+#####################
+# Base
+#####################
+xorg
+
+sysvinit-core
+
+accountsservice
+upower
+
+slim
+# connman
+# connman-ui
+# connman-gtk
+# connman-vpn
+# wicd
+# network-manager-gnome
+# network-manager-openvpn-gnome
+# network-manager-pptp-gnome
+# network-manager-vpnc-gnome
+# network-manager-openconnect-gnome
+# nm-applet
+## vpnc 
+## vpnc-scripts
+
+# fast reboots
+kexec-tools
+
+
+xfce4-power-manager
+
+pm-utils
+xdg-user-dirs
+xdg-utils
+alsa-utils
+alsa-base
+apulse
+# pulseaudio
+# pulseaudio-module-x11
+# rtkit
+
+apt-listchanges
+
+tasksel
+
+gamin
+cpufrequtils
+tzdata
+ntp
+# fslint
+
+# unrar
+unace
+unalz
+unzip
+lzop
+rzip
+zip
+xz-utils
+arj
+bzip2
+p7zip-full
+# p7zip-rar
+
+# whois 
+rpl
+# fuse-utils  fusesmb
+# gnome-disk-utility
+
+# gigolo
+# fusesmb
+# gvfs
+# gvfs-bin
+# gvfs-common
+# gvfs-fuse
+# gvfs-backends
+
+# avahi-utils
+# udisks-glue
+
+dosfstools
+gpart
+mtools
+ntfs-3g
+xfsprogs
+xfsdump 
+btrfs-tools
+reiserfsprogs 
+reiser4progs 
+jfsutils 
+# kpartx
+# dmraid
+# dmsetup
+
+debian-keyring
+libxss1
+logrotate
+debfoster
+# libdvdcss
+mpg321
+libgstreamer-perl
+gstreamer1.0-plugins-base
+gstreamer1.0-plugins-good 
+gstreamer1.0-plugins-bad
+gstreamer1.0-plugins-ugly
+# gstreamer0.10-ffmpeg
+libgstreamer-interfaces-perl
+gstreamer1.0-alsa
+gir1.2-gst-plugins-base-1.0
+gir1.2-gstreamer-1.0
+
+ca-certificates
+hwdata
+
+policykit-1
+policykit-1-gnome
+rfkill
+usbutils
+
+# post install locale purge #
+localepurge
+
+xserver-xorg-video-all
+
+# intel-microcode
+# amd64-microcode
+# iucode-tool
+
+# firmware-misc-nonfree stretch
+# zd1211-firmware
+# firmware-linux 
+# firmware-linux-nonfree 
+# firmware-netxen
+# firmware-ralink 
+# firmware-iwlwifi
+# firmware-intelwimax 
+# firmware-brcm80211
+# firmware-realtek
+# firmware-atheros
+# firmware-libertas
+# firmware-bnx2
+# firmware-b43-installer 
+# firmware-b43legacy-installer 
+# b43-fwcutter 
+
+
+intel-microcode
+amd64-microcode
+iucode-tool
+
+# zd1211-firmware
+firmware-zd1211
+firmware-linux 
+firmware-linux-nonfree 
+firmware-netxen
+firmware-ralink 
+firmware-iwlwifi
+firmware-intelwimax 
+# firmware-ipw2x00 
+firmware-brcm80211
+firmware-realtek
+firmware-atheros
+firmware-libertas
+firmware-bnx2
+firmware-b43-installer 
+firmware-b43legacy-installer 
+b43-fwcutter 
+mobile-broadband-provider-info 
+# wireless-tools
+
+# tool for configuring Linux wireless devices
+iw
+# wireless-tools
+
+lsb-release
+
+# discover
+# discover-data
+# lshw
+
+
+wmctrl
+
+
+setnet
+wpasupplicant
+net-tools
+iputils-ping
+bind9-host
+traceroute

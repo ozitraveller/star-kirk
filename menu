@@ -1,0 +1,540 @@
+#!/bin/bash
+
+set -e
+
+RED='\033[0;41;30m'
+STD='\033[0;0;39m'
+_VERSION='1.0.0'
+_SOURCE='star-morbius'
+
+_FLAVOURS=""
+# _NAME="star-morbius-"${_VERSION} # "-beta2"
+_NAME="star-morbius-${_VERSION}" # "-beta2"
+_SETS="official"
+# _SUFFIX="$(date "+%Y%^b%d")"
+_SUFFIX="live"
+
+_TAG=""
+
+_ARCHITECTURE="amd64" #"$(dpkg --print-architecture)"
+
+# star-morbius-fb-64-2016SEP10
+# star-morbius-1.0-fb-amd64-live
+
+ 
+pause(){
+  read -p "Press [Enter] key to continue..." fackEnterKey
+}
+
+function prompt {
+	echo
+    if [[ -z $2 || ${2^} = Y* ]]; then
+        prompt='Y/n'
+        default='Y'
+    elif [[ ${2^} = N* ]]; then
+        prompt='y/N'
+        default='N'
+    fi
+    
+	while true; do
+		read -p "$1 [$prompt] " ans
+		
+		if [[ -z $ans ]]; then
+			ans=$default
+        fi
+        
+		if [[ ${ans^} = Y* ]]; then
+			echo
+			return 0
+		elif [[ ${ans^} = N* ]]; then
+			echo
+			return 1
+		fi
+	done
+}
+
+build(){
+	
+	cd $1
+
+	rm -f *.iso
+	
+	sudo x-terminal-emulator -e './build'
+	# sudo xfce-terminal -e './build'
+	# ./build
+	
+	if [ -f "live-image-amd64.hybrid.iso" ]; then
+		mv live-image-amd64.hybrid.iso  ${_NAME}-$1-${_ARCHITECTURE}-${_SUFFIX}.iso
+	fi
+
+	if [ -f "live-image-amd64.img" ]; then
+		mv live-image-amd64.img  ${_NAME}-$1-${_ARCHITECTURE}-${_SUFFIX}.img
+	fi
+		
+	cd ..	
+	
+}
+
+removeprompt(){
+
+	if prompt "  Remove '$1'?"; then
+		remove $1
+	fi	
+
+}
+
+remove(){
+
+ 	if [ -d "$1" ]; then
+		purge $1
+		sudo rm -rf $1
+	fi
+
+}
+
+purgeprompt(){
+
+	if prompt "  Purge '$1'?"; then
+		purge $1
+	fi
+}
+
+purge(){
+
+	if [ -d "$1" ]; then
+		cd $1
+		sudo lb clean --purge
+		cd ..
+	fi
+
+}
+
+setup(){
+	
+	if prompt "  Setup '$1'?"; then
+		remove $1
+	fi	
+
+	sudo mkdir $1 && cd $1 && sudo lb config
+	# sudo cp /usr/share/doc/live-build/examples/auto/* auto/
+
+	if [ ! -f "./build" ]; then
+		cd ..
+		sudo cp ./buildx ./$1/build
+	fi
+	
+	# uncomment pause to see messages
+	#pause
+}
+
+update(){
+
+	if [ ! $2 ] ; then
+		standard $1	
+	else
+		case "${2}" in
+		'live') 
+			custom-live $1
+			;;		
+		*) 
+			custom $1
+			;;
+		
+		esac
+	fi	
+	
+	cd ../..
+		
+	return 0
+	
+	echo "****"
+	
+	pause
+	
+	SOURCEROOT="/home/$SUDO_USER/${_SOURCE}"
+	#echo "${SOURCEROOT}"
+
+	cd $1
+		
+	rm -rf ./auto/*
+#	cp -rf /home/$SUDO_USER/${_SOURCE}/common/auto/* ./auto/
+	if [ $2 ] && ([ $2 == "min" ] || [ $2 == "custom" ]); then
+		cp -rf ${SOURCEROOT}/$1-64/auto/* ./auto/
+	else
+		cp -rf ${SOURCEROOT}/common/auto/* ./auto/
+	fi
+
+	cd config
+
+	if [ ! -d "bootloaders" ]; then
+		mkdir bootloaders
+	fi
+
+	rm -rf ./apt/*
+	rm -rf ./archives/*
+	rm -rf ./hooks/*
+	rm -rf ./includes.chroot/*
+	rm -rf ./package-lists/*
+	rm -rf ./includes.installer/*
+	rm -rf ./binary_debian-installer
+	rm -rf ./bootloaders/*
+	rm -rf ./includes.binary/*
+	rm -rf ./packages.chroot/* 
+	rm -rf ./includes.binary
+
+	if [ ! -d "./includes.binary/install" ] && [ ! $2 ] ; then
+		mkdir ./includes.binary
+		mkdir ./includes.binary/install
+	fi
+
+	case "${2}" in
+		min)
+			cp -r ${SOURCEROOT}/$1-64/config/apt/* ./apt/
+			cp -r ${SOURCEROOT}/$1-64/config/archives/* ./archives/
+			cp -r ${SOURCEROOT}/$1-64/config/bootloaders/* ./bootloaders/
+
+			DIRECTORY="${SOURCEROOT}/$1-64/config/includes.installer/"
+			if [ -d $DIRECTORY ]; then
+				if [ "$(ls -A $DIRECTORY)" ]; then
+					cp -r ${DIRECTORY}/* ./includes.installer/	
+					cp -r ${DIRECTORY}/preseed.cfg ./includes.binary/install/
+				else
+					rm -rf ./includes.installer/*
+				fi
+			fi
+			
+			# LiveUSB
+			DIRECTORY="${SOURCEROOT}/$1-64/config/includes.binary/"
+			if [ -d $DIRECTORY ]; then
+				if [ "$(ls -A $DIRECTORY)" ]; then
+					cp -r ${DIRECTORY}/* ./includes.binary/
+				else
+					rm -rf ./includes.binary/*
+				fi
+			fi
+			;;
+
+		custom)
+			cp -r ${SOURCEROOT}/$1-64/config/* ./	
+			;;
+
+		*)
+			#echo "1"
+			
+			cp -r ${SOURCEROOT}/common/config/* ./
+			
+			cp ./includes.installer/preseed.cfg ./includes.binary/install/
+			#~ # live installer
+			#~ DIRECTORY="./includes.binary/install"
+			#~ echo ${DIRECTORY}
+			#~ if [ -d $DIRECTORY ]; then
+			#~ echo "2"
+				#~ if [ "$(ls -A $DIRECTORY)" ]; then
+				#~ echo "3"
+					#~ cp -r ${DIRECTORY}/* ./includes.installer/	
+					#~ cp ${DIRECTORY}/preseed.cfg ./includes.binary/install/
+				#~ else
+					#~ rm -rf ./includes.installer/*
+				#~ fi
+			#~ fi			
+			;;
+	esac
+
+	#if [ $2 ] && [ $2 == "min" ]; then
+		#cp -r ${SOURCEROOT}/$1-64/config/apt/* ./apt/
+		#cp -r ${SOURCEROOT}/$1-64/config/archives/* ./archives/
+		#cp -r ${SOURCEROOT}/$1-64/config/bootloaders/* ./bootloaders/
+
+		#DIRECTORY="${SOURCEROOT}/$1-64/config/includes.installer/"
+		#if [ -d $DIRECTORY ]; then
+			#if [ "$(ls -A $DIRECTORY)" ]; then
+				#cp -r ${DIRECTORY}/* ./includes.installer/	
+				#cp -r ${DIRECTORY}/preseed.cfg ./includes.binary/install/
+			#else
+				#rm -rf ./includes.installer/*
+			#fi
+		#fi
+		
+		## LiveUSB
+		#DIRECTORY="${SOURCEROOT}/$1-64/config/includes.binary/"
+		#if [ -d $DIRECTORY ]; then
+			#if [ "$(ls -A $DIRECTORY)" ]; then
+				#cp -r ${DIRECTORY}/* ./includes.binary/
+			#else
+				#rm -rf ./includes.binary/*
+			#fi
+		#fi
+	
+	#else
+		#cp -r ${SOURCEROOT}/common/config/* ./
+	#fi
+
+	cp -r ${SOURCEROOT}/$1-64/config/hooks/* ./hooks/
+	cp -r ${SOURCEROOT}/$1-64/config/includes.chroot/* ./includes.chroot/
+	cp ${SOURCEROOT}/$1-64/config/package-lists/* ./package-lists/
+	
+#	cp -r ${SOURCEROOT}/$1-64/config/includes.chroot/* ./includes.chroot/
+#	cp ${SOURCEROOT}/$1-64/config/package-lists/* ./package-lists/
+
+	DIRECTORY="${SOURCEROOT}/$1-64/config/packages.chroot/"
+	if [ -d $DIRECTORY ]; then
+		if [ "$(ls -A $DIRECTORY)" ]; then
+			cp ${SOURCEROOT}/$1-64/config/packages.chroot/* ./packages.chroot/
+		fi
+	fi
+
+	# remove default .conkyrc
+	if [ $1 == "i3" ]; then
+		rm ./includes.chroot/etc/skel/.conkyrc
+		rm -rf ./includes.chroot/etc/skel/.config/volumeicon
+	fi
+		
+	#cp -r /home/$SUDO_USER/${_SOURCE}/custom/config/* ./
+	
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/hostname
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/issue
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/issue.net
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/motd
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/os-release
+	#echo $PWD	
+	cd ../..
+	#echo $PWD
+	
+	#echo $1-"Updated"
+
+	# uncomment pause to see messages
+	# pause
+}
+
+custom(){
+	
+	SOURCEROOT="/home/$SUDO_USER/${_SOURCE}"
+	#echo "${SOURCEROOT}"
+
+	cd $1
+		
+	rm -rf ./auto/*
+	cp -rf ${SOURCEROOT}/$1-64/auto/* ./auto/
+
+	cd config
+
+	if [ ! -d "bootloaders" ]; then
+		mkdir bootloaders
+	fi
+
+	rm -rf ./apt/*
+	rm -rf ./archives/*
+	rm -rf ./hooks/*
+	rm -rf ./includes.chroot/*
+	rm -rf ./package-lists/*
+	rm -rf ./includes.installer/*
+	rm -rf ./binary_debian-installer
+	rm -rf ./bootloaders/*
+	rm -rf ./includes.binary/*
+	rm -rf ./packages.chroot/* 
+	rm -rf ./includes.binary
+
+	cp -r ${SOURCEROOT}/$1-64/config/* ./
+		
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/hostname
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/issue
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/issue.net
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/motd
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/os-release
+}
+
+custom-live(){
+# live-installer
+	
+	SOURCEROOT="/home/$SUDO_USER/${_SOURCE}"
+	#echo "${SOURCEROOT}"
+
+	cd $1
+		
+	rm -rf ./auto/*
+	cp -rf ${SOURCEROOT}/$1-64/auto/* ./auto/
+
+	cd config
+
+	if [ ! -d "bootloaders" ]; then
+		mkdir bootloaders
+	fi
+
+	rm -rf ./apt/*
+	rm -rf ./archives/*
+	rm -rf ./hooks/*
+	rm -rf ./includes.chroot/*
+	rm -rf ./package-lists/*
+	rm -rf ./includes.installer/*
+	rm -rf ./binary_debian-installer
+	rm -rf ./bootloaders/*
+	rm -rf ./includes.binary/*
+	rm -rf ./packages.chroot/* 
+	rm -rf ./includes.binary
+
+	# preseed file for live-installer
+	if [ ! -d "./includes.binary/install" ] ; then
+		mkdir ./includes.binary
+		mkdir ./includes.binary/install
+	fi
+
+	cp -r ${SOURCEROOT}/$1-64/config/* ./
+		
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/hostname
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/issue
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/issue.net
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/motd
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/os-release
+}
+
+standard(){
+	
+	SOURCEROOT="/home/$SUDO_USER/${_SOURCE}"
+	#echo "${SOURCEROOT}"
+
+	cd $1
+		
+	rm -rf ./auto/*
+	cp -rf ${SOURCEROOT}/common/auto/* ./auto/
+
+	cd config
+
+	if [ ! -d "bootloaders" ]; then
+		mkdir bootloaders
+	fi
+
+	rm -rf ./apt/*
+	rm -rf ./archives/*
+	rm -rf ./hooks/*
+	rm -rf ./includes.chroot/*
+	rm -rf ./package-lists/*
+	rm -rf ./includes.installer/*
+	rm -rf ./binary_debian-installer
+	rm -rf ./bootloaders/*
+	rm -rf ./includes.binary/*
+	rm -rf ./packages.chroot/* 
+	rm -rf ./includes.binary
+
+	if [ ! -d "./includes.binary/install" ] ; then
+		mkdir ./includes.binary
+		mkdir ./includes.binary/install
+	fi
+
+	cp -r ${SOURCEROOT}/common/config/* ./
+	
+	cp ./includes.installer/preseed.cfg ./includes.binary/install/
+
+	cp -r ${SOURCEROOT}/$1-64/config/hooks/* ./hooks/
+	cp -r ${SOURCEROOT}/$1-64/config/includes.chroot/* ./includes.chroot/
+	cp ${SOURCEROOT}/$1-64/config/package-lists/* ./package-lists/
+
+	DIRECTORY="${SOURCEROOT}/$1-64/config/packages.chroot/"
+	if [ -d $DIRECTORY ]; then
+		if [ "$(ls -A $DIRECTORY)" ]; then
+			cp ${SOURCEROOT}/$1-64/config/packages.chroot/* ./packages.chroot/
+		fi
+	fi
+		
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/hostname
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/issue
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/issue.net
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/motd
+	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/os-release
+
+}
+
+
+main(){
+	
+	clear
+	echo -e "\t~~~~~~~~~~~~~~~~~~~~~"	
+	echo -e "\t M A I N - M E N U"
+	echo -e "\t~~~~~~~~~~~~~~~~~~~~~\t\t"$_SOURCE" ["$_VERSION"]"
+	echo " "
+	echo -e "\ts. Setup    x. Xfce       n. Netinst"
+	echo -e "\tr. Remove   f. Fluxbox    jm. Jwm minimal"
+	echo -e "\tu. Update   o. Openbox    im. i3 minimal"
+	echo -e "\tb. Build    j. Jwm        ju. Jwm USB"
+	echo -e "\tp. Purge    i. i3         c1. Jwm PIA"
+	echo -e "\t            d. dwm"
+	echo " "
+	echo -e "\tExample - sx (Setup Xfce)"
+	echo " "
+	echo -e "\tq. Quit"
+	echo " "
+		
+	local choice
+	read -p "Enter choice or q : " choice
+
+	case $choice in
+		sx) setup "xfce" ;;
+		sf) setup "fb" ;;
+		so) setup "ob" ;;
+		sj) setup "jwm" ;;
+		si) setup "i3" ;;
+		sd) setup "dwm" ;;
+		sn) setup "netinst" ;;
+		sjm) setup "jwm-min" ;;
+		sim) setup "i3-min" ;;
+		sju) setup "jwm-usb" ;;
+		sc1) setup "jwm-pia" ;;
+		rx) remove "xfce" "" ;;
+		rf) remove "fb" ;;
+		ro) remove "ob" ;;
+		rj) remove "jwm" ;;
+		ri) remove "i3" ;;
+		rd) remove "dwm" ;;
+		rn) remove "netinst" ;;
+		rjm) remove "jwm-min" ;;
+		rim) remove "i3-min" ;;
+		rju) remove "jwm-usb" ;;
+		rc1) remove "jwm-pia" ;;
+		ux) update "xfce" ;;
+		uf) update "fb" ;;
+		uo) update "ob" ;;
+		uj) update "jwm" ;;
+		ui) update "i3" ;;
+		ud) update "dwm" ;;
+		un) update "netinst" "min";;
+		ujm) update "jwm-min" "custom";;
+		uim) update "i3-min" "min";;
+		uju) update "jwm-usb" "min";;
+		uc1) update "jwm-pia" "custom";;
+		bx) build "xfce" ;;
+		bf) build "fb" ;;
+		bo) build "ob" ;;
+		bj) build "jwm" ;;
+		bi) build "i3" ;;
+		bd) build "dwm" ;;
+		bn) build "netinst" ;;
+		bjm) build "jwm-min" ;;
+		bim) build "i3-min" ;;
+		bju) build "jwm-usb" ;;
+		bc1) build "jwm-pia" ;;
+		px) purge "xfce" ;;
+		pf) purge "fb" ;;
+		po) purge "ob" ;;
+		pj) purge "jwm" ;;
+		pi) purge "i3" ;;
+		pd) purge "dwm" ;;
+		pn) purge "netinst" ;;
+		pjm) purge "jwm-min" ;;
+		pim) purge "i3-min" ;;
+		pju) purge "jwm-usb" ;;
+		pc1) purge "jwm-pia" ;;
+		q|Q) break;;
+		*) echo -e "\tinvalid answer, please try again" ;;
+	esac
+
+}
+
+# ----------------------------------------------
+# Step #3: Trap CTRL+C, CTRL+Z and quit singles
+# ----------------------------------------------
+trap '' SIGINT SIGQUIT SIGTSTP
+
+while true
+do
+	main
+done
+
