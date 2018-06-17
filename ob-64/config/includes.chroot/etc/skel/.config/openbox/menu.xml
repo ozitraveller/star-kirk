@@ -201,17 +201,10 @@
 					</command>
 				</action>
 			</item>
-			<item label="Audio Mixer">
+			<item label="Volti">
 				<action name="Execute">
 					<command>
-						/usr/bin/xfce4-mixer
-					</command>
-				</action>
-			</item>
-			<item label="Xfburn">
-				<action name="Execute">
-					<command>
-						/usr/bin/xfburn
+						/usr/bin/volti
 					</command>
 				</action>
 			</item>

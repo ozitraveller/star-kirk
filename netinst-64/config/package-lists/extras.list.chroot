@@ -1,0 +1,26 @@
+gdisk
+htop
+iftop
+iotop
+ncdu
+parted
+wavemon
+iw
+# wireless-tools
+localepurge
+openssh-server
+openssh-sftp-server
+# openssl	
+mc	
+mc-data	
+debfoster
+rsync
+ufw
+
+
+setnet
+wpasupplicant
+net-tools
+iputils-ping
+bind9-host
+traceroute

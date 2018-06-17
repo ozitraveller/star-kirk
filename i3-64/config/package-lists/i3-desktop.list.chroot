@@ -1,0 +1,27 @@
+i3
+i3status
+# i3blocks
+dunst
+
+wicd-curses
+wicd-daemon
+
+hsetroot
+
+# rxvt-unicode
+# xfce4-terminal
+lxappearance
+lxterminal
+lxtask
+# compton
+arandr
+# leafpad
+geany
+# atril
+
+pcmanfm
+libfm-modules
+lsof
+udevil
+
+yad

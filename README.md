@@ -1,2 +1,1 @@
-# star-kirk
-Base on Devuan Ascii
+# star-morbius

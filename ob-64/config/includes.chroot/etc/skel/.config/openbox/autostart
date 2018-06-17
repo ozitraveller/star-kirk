@@ -16,7 +16,8 @@
 # policykit-1-gnome
 
 ## Set root window colour
-hsetroot -solid "#000000" & 
+# hsetroot -solid "#000000" & 
+hsetroot -solid "#2E3436" & 
 
 ## Group start:
 ## 1. nitrogen - restores wallpaper
