@@ -2,19 +2,31 @@
 
 set -e
 
-DISTRIBUTION="ascii"
-ARCHITECTURES="amd64"
-LINUX_FLAVOURS="amd64"
-ARCHIVE_AREAS="main contrib non-free"
-SOURCE="false"
-# DEVUAN_INSTALLER="live"
-DEVUAN_INSTALLER="daily"
+_DISTRIBUTION="ascii"
+_ARCHITECTURES="amd64"
+_LINUX_FLAVOURS="amd64"
+_ARCHIVE_AREAS="main contrib non-free"
+_SOURCE="false"
+# _DEVUAN_INSTALLER="live"
+_DEVUAN_INSTALLER="live"
 
-SOURCE="false"
-_MIRROR_BINARY="http://packages.devuan.org/merged"
+#~ cd /usr/share/live/build/data/debian-cd
+#~ ln -s /usr/share/live/build/data/debian-cd/squeeze/ ascii
+
 
 # sudo apt-get install apt-cacher-ng
 # _MIRROR_BINARY="http://localhost:3142/packages.devuan.org/merged"
+
+# _MIRROR_BINARY="http://packages.devuan.org/devuan"
+# _INSTALLER_MIRROR="http://pkgmaster.devuan.org/merged"
+
+# _MIRROR_BINARY="http://pkgmaster.devuan.org/merged"
+_MIRROR_BINARY="http://au.deb.devuan.org/merged"
+
+_INSTALLER_MIRROR="http://packages.devuan.org/devuan"
+
+# sudo apt-get install apt-cacher-ng
+# MIRROR_BINARY="http://localhost:3142/packages.devuan.org/merged"
 
 # MIRROR_BINARY="http://au.mirror.devuan.org/merged/"
 # MIRROR_BINARY="http://packages.devuan.org/devuan/dists/jessie/main/"
@@ -23,6 +35,7 @@ _MIRROR_BINARY="http://packages.devuan.org/merged"
 
 #	--build-with-chroot false \
 #	--debootstrap-options "--variant=minbase"
+#	--debootstrap-options "--variant=minbase" \
 #	--apt-source-archives true \
 #	--initramfs-compression lzma \
 #	--apt-options "--force-yes --yes" \
@@ -31,36 +44,54 @@ _MIRROR_BINARY="http://packages.devuan.org/merged"
 	#~ --binary-images "iso-hybrid" \	
 	#~ --bootloader "syslinux,grub2" \
     #~ --bootloader "grub2" \
+    
+    #~ --parent-mirror-debian-installer "${_INSTALLER_MIRROR}" \
+    #~ --mirror-debian-installer "${_INSTALLER_MIRROR}" \    
 
 # sudo geany /usr/lib/live/build/binary_grub2 /usr/lib/live/build/binary_syslinux /usr/lib/live/build/binary
 # sudo geany /usr/lib/live/build/binary_syslinux
 # sudo geany /usr/lib/live/build/binary
+# 	--clean \
+# 	--debian-installer-gui "true" \	
+
+    #~ --parent-mirror-chroot "${_INSTALLER_MIRROR}" \
+    #~ --mirror-chroot "${_INSTALLER_MIRROR}" \
+    
+	#~ --firmware-binary "true" \
+	#~ --firmware-chroot "true" \
 
 lb config noauto \
 	--mode devuan \
-	--chroot-filesystem squashfs \
+	--clean \
+	--chroot-filesystem "squashfs" \
+	--initsystem "sysvinit" \
+	--bootloaders "syslinux,grub-efi" \
 	--distribution "${_DISTRIBUTION}" \
 	--debian-installer-distribution "${_DISTRIBUTION}" \
-	--debian-installer "${DEVUAN_INSTALLER}" \
+	--debian-installer "${_DEVUAN_INSTALLER}" \
+	--debian-installer-gui "true" \
 	--architectures "${_ARCHITECTURES}" \
 	--linux-flavours "${_LINUX_FLAVOURS}" \
-	--apt-recommends false \
-	--apt-secure true \
-	--apt-indices false \
-	--apt-source-archives false \
+	--apt-recommends "false" \
+	--apt-secure "true" \
+	--apt-indices "false" \
+	--apt-source-archives "false" \
 	--archive-areas "${_ARCHIVE_AREAS}" \
 	--parent-mirror-bootstrap "${_MIRROR_BINARY}" \
 	--parent-mirror-binary "${_MIRROR_BINARY}" \
 	--mirror-bootstrap "${_MIRROR_BINARY}" \
 	--mirror-binary "${_MIRROR_BINARY}" \
+    --parent-mirror-debian-installer "${_INSTALLER_MIRROR}" \
+    --mirror-debian-installer "${_INSTALLER_MIRROR}" \
+    --firmware-chroot "false" \
 	--iso-application "Star Linux" \
 	--iso-publisher "Star" \
 	--iso-volume "Star Live" \
-	--backports false \
-	--security false \
-    --updates false \
-	--memtest none \
-	--win32-loader false \
+	--backports "false" \
+	--security "false" \
+	--updates "false" \
+	--memtest "none" \
+	--win32-loader "false" \
 	--debug \
 	--verbose \
 	--source "false" \

@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# This is an binary hook for live-build(7) to overwrite the banner
+# and add the gtkstep theme to the graphical Debian Installer.
+# To enable it, copy or symlink this hook into your config/binary_local-hooks
+# directory and add the replacement components at:
+#
+#  config/binary_debian-installer/
+#
+# The banner file should be a PNG image of dimensions 800 x 75.
+# Any other components should be inside a compressed tar archive
+# named additions.tar.gz with full file paths
+
+set -x
+
+echo STAR-LIVE-Hook: "$0"
+echo ""
+
+ls -al binary/boot/grub
+
+echo "remove binary/boot/grub/i386-efi"
+if [ -d "binary/boot/grub/i386-efi" ]; then
+	rm -rf binary/boot/grub/i386-efi
+echo "delete binary/boot/grub/i386-efi"
+
+fi
+
+echo "remove binary/boot/grub/live-theme/theme.txt"
+if [ -f "binary/boot/grub/live-theme/theme.txt" ]; then
+	rm binary/boot/grub/live-theme/theme.txt
+echo "delete binary/boot/grub/live-theme/theme.txt"
+
+fi
+
+#~ echo "remove binary/boot/grub/live-theme"
+#~ if [ -d "binary/boot/grub/live-theme" ]; then
+	#~ rm -rf binary/boot/grub/live-theme
+#~ fi
+
+#~ rm -f binary/boot/grub/dejavu-bold-14.pf2
+#~ rm -f binary/boot/grub/dejavu-bold-16.pf2
+#~ rm -f binary/boot/grub/unicode.pf2
+#~ rm -f binary/boot/grub/font.pf2
+
+rm binary/boot/grub/live-theme/theme.txt
+rm binary/boot/grub/live-theme/1-1-1
+
+rm -rf binary/boot/grub/i386-efi
+rm binary/boot/grub/font.pf2
+rm binary/efi/boot/bootia32.efi

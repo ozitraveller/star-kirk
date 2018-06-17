@@ -3,9 +3,7 @@ desktop-base
 xfce4-notifyd
 libnotify-bin
 bash-completion
-xfce4-mixer
-# pavucontrol
-# volumeicon-alsa
+# xfce4-mixer
 
 ttf-dejavu 
 fonts-liberation 
@@ -46,13 +44,10 @@ suckless-tools
 # smplayer
 # mpv
 iceweasel
-# midori
-# netsurf
-# qupzilla
-# palemoon
 mirage
+# geeqie
 conky-all 
-file-roller
+# file-roller
 xarchiver
 qalculate-gtk
 # transmission-gtk
@@ -68,9 +63,9 @@ qalculate-gtk
 # tree
 scrot
 # mutt
-xfce4-appfinder
-xfburn
-xfce4-screenshooter
+# xfce4-appfinder
+# xfburn
+# xfce4-screenshooter
 xpdf
 # zathura
 

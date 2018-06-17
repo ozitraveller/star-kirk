@@ -33,7 +33,7 @@ pm-utils
 xdg-user-dirs
 xdg-utils
 alsa-utils
-alsa-base
+# alsa-base
 apulse
 # pulseaudio
 # pulseaudio-module-x11
@@ -59,7 +59,7 @@ zip
 xz-utils
 arj
 bzip2
-p7zip-full
+# p7zip-full
 # p7zip-rar
 
 # whois 
@@ -82,6 +82,7 @@ dosfstools
 gpart
 mtools
 ntfs-3g
+# e2fsprogs
 xfsprogs
 xfsdump 
 btrfs-tools
@@ -95,16 +96,16 @@ jfsutils
 debian-keyring
 libxss1
 logrotate
-debfoster
+# debfoster
 # libdvdcss
 mpg321
-libgstreamer-perl
+# libgstreamer-perl
 gstreamer1.0-plugins-base
 gstreamer1.0-plugins-good 
 gstreamer1.0-plugins-bad
 gstreamer1.0-plugins-ugly
 # gstreamer0.10-ffmpeg
-libgstreamer-interfaces-perl
+# libgstreamer-interfaces-perl
 gstreamer1.0-alsa
 gir1.2-gst-plugins-base-1.0
 gir1.2-gstreamer-1.0
@@ -188,3 +189,5 @@ net-tools
 iputils-ping
 bind9-host
 traceroute
+
+apt-transport-https
