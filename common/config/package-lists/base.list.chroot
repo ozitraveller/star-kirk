@@ -167,7 +167,6 @@ firmware-b43-installer
 firmware-b43legacy-installer 
 b43-fwcutter 
 mobile-broadband-provider-info 
-# wireless-tools
 
 # tool for configuring Linux wireless devices
 iw

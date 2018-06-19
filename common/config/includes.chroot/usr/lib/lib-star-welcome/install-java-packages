@@ -9,10 +9,10 @@ echo "
   Would you like to install Java support now? If you choose to do 
   this, the following package will be installed:
 
-      openjdk-7-jre icedtea-7-plugin
+      openjdk-8-jre icedtea-8-plugin
 
   Note: additional packages listed as dependencies will also be installed."
 
 if prompt "  Would you like to install Java?"; then
-	sudo apt-get install -y openjdk-7-jre icedtea-7-plugin
+	sudo apt-get install -y openjdk-8-jre icedtea-8-plugin
 fi

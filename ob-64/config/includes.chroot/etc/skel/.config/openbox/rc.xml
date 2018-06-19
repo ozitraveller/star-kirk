@@ -311,8 +311,27 @@
       <direction>down</direction>
     </action>
   </keybind>
-
+   
     <!-- Keybindings for running applications -->
+    <keybind key="C-S-+">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>dmenu-bind</name>
+        </startupnotify>
+        <command>~/.config/dmenu/dmenu-bind.sh</command>
+      </action>
+    </keybind>
+    <keybind key="C-S-j">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>touchtoggle</name>
+        </startupnotify>
+        <command>/usr/bin/touchtoggle.sh</command>
+      </action>
+    </keybind>
+    
     <keybind key="A-F2">
       <action name="Execute">
         <startupnotify>

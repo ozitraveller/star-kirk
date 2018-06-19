@@ -167,7 +167,7 @@ do
 	select opt in "${STEPS_MAIN[@]}"; do
 	
 		case $opt in
-			apt-update | apt-dist-upgrade)
+			"apt-update" | "apt-dist-upgrade" | "set-root-password")
 				. "$LIBDIR/$opt"
 				break
 			;;

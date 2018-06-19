@@ -62,6 +62,7 @@ Control Mod1 slash :RootMenu
 
 # dmenu
 Mod4 d :Exec ~/.config/dmenu/dmenu-bind.sh
+Control Shift + :Exec ~/.config/dmenu/dmenu-bind.sh
 
 # media player
 Mod4 m :Exec x-media-player
