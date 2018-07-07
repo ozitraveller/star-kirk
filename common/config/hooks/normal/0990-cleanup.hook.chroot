@@ -59,7 +59,7 @@ do
 done
 
 dpkg --purge debconf-i18n
-dpkg --purge gcc-4.8-base
+# dpkg --purge gcc-4.8-base
 dpkg --purge ttf-dejavu
 
 echo STAR-LIVE-Hook: "autoremove --purge"
@@ -106,15 +106,18 @@ zerosize() {
 
 echo STAR-LIVE-Hook: "zerosize"
 echo ""
-    zerosize /usr/share/doc -type f -size +1c 
-    zerosize /usr/share/doc -type l 
+    zerosize /usr/share/doc -type f -size +1c
+    zerosize /usr/share/doc -type l
 
-    zerosize /usr/share/man -type f -size +1c 
+    zerosize /usr/share/man -type f -size +1c
     zerosize /usr/share/man -type l 
 
 
-    zerosize /usr/share/info -type f -size +1c 
-    zerosize /usr/share/info -type l 
+    zerosize /usr/share/info -type f -size +1c
+    zerosize /usr/share/info -type l
+    
+    zerosize /usr/share/doc-base -type f -size +1c
+    zerosize /usr/share/doc-base -type l
 
     #find /live/image/02 -name '.wh*' -delete 
 

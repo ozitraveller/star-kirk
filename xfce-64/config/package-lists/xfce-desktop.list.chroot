@@ -6,10 +6,10 @@ connman
 connman-ui
 # wicd
 
-xfce4-mixer
+# xfce4-mixer
 xfce4-terminal
+xfce4-appfinder
 xfce4-screenshooter 
-
 libxfce4ui-utils
 xfce4-taskmanager
 xfwm4 
@@ -33,3 +33,6 @@ tumbler
 # gvfs-fuse
 
 mpv
+volti
+file-roller
+# xarchiver

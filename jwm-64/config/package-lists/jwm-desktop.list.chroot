@@ -9,7 +9,7 @@ hsetroot
 lxterminal
 lxrandr
 lxappearance
-gmrun
+# gmrun
 leafpad
 
 pcmanfm
@@ -21,3 +21,8 @@ udevil
 yad
 
 mpv
+# file-roller
+xarchiver
+
+# use demenu instead
+# xfce4-appfinder

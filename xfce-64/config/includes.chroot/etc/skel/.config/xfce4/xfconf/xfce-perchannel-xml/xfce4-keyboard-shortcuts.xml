@@ -26,7 +26,7 @@
       <property name="&lt;Alt&gt;F2" type="string" value="xfrun4"/>
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Super&gt;x" type="string" value="xfce4-session-logout"/>
-      <property name="&lt;Super&gt;w" type="string" value="x-web-browser"/>
+      <property name="&lt;Super&gt;w" type="string" value="x-www-browser"/>
       <property name="&lt;Super&gt;f" type="string" value="x-file-manager"/>
       <property name="&lt;Super&gt;m" type="string" value="x-media-player"/>
       <property name="&lt;Super&gt;e" type="string" value="editor"/>

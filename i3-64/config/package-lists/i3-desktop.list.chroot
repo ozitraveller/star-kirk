@@ -8,16 +8,11 @@ wicd-daemon
 
 hsetroot
 
-# rxvt-unicode
-# xfce4-terminal
 lxappearance
 lxterminal
 lxtask
-# compton
 arandr
-# leafpad
 geany
-# atril
 
 pcmanfm
 libfm-modules

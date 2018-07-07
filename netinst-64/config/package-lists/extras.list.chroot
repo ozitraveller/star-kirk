@@ -10,6 +10,7 @@ iw
 localepurge
 openssh-server
 openssh-sftp-server
+# openssh-client
 # openssl	
 mc	
 mc-data	
@@ -24,3 +25,14 @@ net-tools
 iputils-ping
 bind9-host
 traceroute
+
+apt-listchanges
+wget
+
+ca-certificates
+hwdata
+
+policykit-1
+policykit-1-gnome
+rfkill
+usbutils

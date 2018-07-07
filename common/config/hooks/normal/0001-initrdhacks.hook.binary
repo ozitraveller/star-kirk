@@ -20,9 +20,24 @@ echo "Replace debian installer kernel with hard link to live kernel if they do n
 if [ "$(cmp -s binary/install/vmlinuz binary/live/vmlinuz-4.9.0-6-amd64 ; echo $?)" = "0" ]
 then
 echo "  Replacing..."
-	rm -f binary/install/vmlinuz
+
 	rm -f binary/install/gtk/vmlinuz
+	rm -f binary/install/vmlinuz
+	# rm -f binary/live/vmlinuz
+	# rm -f binary/live/initrd.img
+
 	ln binary/live/vmlinuz-4.9.0-6-amd64 binary/install/gtk/vmlinuz
 	ln binary/live/vmlinuz-4.9.0-6-amd64 binary/install/vmlinuz
 fi
 echo ""
+
+# Delete superfluous non gtk debian installer components, in order to save some space:
+# rm -f binary/install/initrd.gz binary/install/vmlinuz
+# rm -f binary/install/gtk/initrd.gz binary/install/gtk/vmlinuz
+
+# Replace debian installer kernel with hard link to live kernel if they do not differ:
+# if [ "$(cmp -s binary/install/gtk/vmlinuz binary/live/vmlinuz ; echo $?)" = "0" ]
+# then
+# 	rm -f binary/install/gtk/vmlinuz
+# 	ln binary/live/vmlinuz binary/install/gtk/vmlinuz
+# fi

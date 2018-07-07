@@ -1,7 +1,7 @@
 #!/bin/bash
 #Star User Set-up
 
-# set -x
+# set -e
 
 readonly USER=${USER}
 readonly HOME=${HOME}
@@ -19,32 +19,38 @@ if [ ! -f "/home/$USER/.config/star/star-setup" ]; then
     #cd /home/$USER
     #tar xkpsf skel.tar.gz
     #rm skel.tar.gz
-    
+
     if [ -f "/etc/apt/sources.list.d/zz-sources.list" ]; then
         rm -f /etc/apt/sources.list.d/zz-sources.list
-    fi
-    if [ -f "/home/$USER/.fluxbox/init" ]; then
-        sed -i "s/REPLACEME/${USER}/g" /home/$USER/.fluxbox/init > /dev/null 2>&1
-    fi
+    fi 
     if [ -f "/home/$USER/.gtkrc-2.0" ]; then
         sed -i "s/REPLACEME/${USER}/g" /home/$USER/.gtkrc-2.0 > /dev/null 2>&1
     fi
     if [ -f "/home/$USER/.mozilla/firefox/cpffssvb.default/prefs.js" ]; then
         sed -i "s/REPLACEME/${USER}/g" /home/$USER/.mozilla/firefox/cpffssvb.default/prefs.js > /dev/null 2>&1
     fi
-                
+    if [ -f "/home/$USER/.conkyrc" ]; then
+        rm -f /home/$USER/.conkyrc
+    fi
+        
     ln -s /usr/share/backgrounds /home/$USER/images/wallpapers/shared
-    
-    if [ "$USER" != "starlive" ]; then
-		sed -i".bak" '/# installer start/,/# installer end/d' /etc/skel/.fluxbox/menu
-		rm /etc/skel/.fluxbox/menu.bak
-		if [ -f "/home/$USER/.fluxbox/menu" ]; then
-			rm /home/$USER/.fluxbox/menu
+
+	if [ "$USER" != "starlive" ]; then
+		sed -i".bak" '/# installer start/,/# installer end/d' /etc/skel/.config/i3/config
+		rm /etc/skel/.config/i3/config.bak
+		if [ -f "/home/$USER/.config/i3/config" ]; then
+			rm /home/$USER/.config/i3/config
 		fi
-		cp /etc/skel/.fluxbox/menu /home/$USER/.fluxbox/menu
+		# if [ -f "/home/$USER/.config/conky/conky_shortcuts_live_grey" ]; then
+		# 	rm /home/$USER/.config/conky/conky_shortcuts_live_grey
+		# fi
 		
-		rpl -q '# policykit-1-gnome' '/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &' /etc/skel/.fluxbox/startup > /dev/null 2>&1
-		cp /etc/skel/.fluxbox/startup /home/$USER/.fluxbox/startup
+		cp /etc/skel/.config/i3/config /home/$USER/.config/i3/config
+		cp /etc/skel/.config/conky/conky_shortcuts_live_grey2 /home/$USER/.config/conky/conky_shortcuts_live_grey
+		
+		rpl -q '# policykit-1-gnome' 'exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1' /etc/skel/.config/i3/config > /dev/null 2>&1
+		cp /etc/skel/.config/i3/config /home/$USER/.config/i3/config
+
 	fi
 	
 	touch /home/$USER/.config/star/star-setup

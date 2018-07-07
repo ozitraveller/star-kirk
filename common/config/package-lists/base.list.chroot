@@ -49,7 +49,7 @@ tzdata
 ntp
 # fslint
 
-# unrar
+unrar
 unace
 unalz
 unzip
@@ -59,8 +59,9 @@ zip
 xz-utils
 arj
 bzip2
-# p7zip-full
-# p7zip-rar
+gzip
+p7zip-full
+p7zip-rar
 
 # whois 
 rpl
@@ -123,28 +124,6 @@ localepurge
 
 xserver-xorg-video-all
 
-# intel-microcode
-# amd64-microcode
-# iucode-tool
-
-# firmware-misc-nonfree stretch
-# zd1211-firmware
-# firmware-linux 
-# firmware-linux-nonfree 
-# firmware-netxen
-# firmware-ralink 
-# firmware-iwlwifi
-# firmware-intelwimax 
-# firmware-brcm80211
-# firmware-realtek
-# firmware-atheros
-# firmware-libertas
-# firmware-bnx2
-# firmware-b43-installer 
-# firmware-b43legacy-installer 
-# b43-fwcutter 
-
-
 intel-microcode
 amd64-microcode
 iucode-tool
@@ -170,7 +149,7 @@ mobile-broadband-provider-info
 
 # tool for configuring Linux wireless devices
 iw
-# wireless-tools
+wireless-tools
 
 lsb-release
 

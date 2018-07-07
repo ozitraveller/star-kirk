@@ -48,7 +48,7 @@ mirage
 # geeqie
 conky-all 
 # file-roller
-xarchiver
+# xarchiver
 qalculate-gtk
 # transmission-gtk
 # deluge
@@ -65,7 +65,7 @@ scrot
 # mutt
 # xfce4-appfinder
 # xfburn
-# xfce4-screenshooter
+xfce4-screenshooter
 xpdf
 # zathura
 

@@ -2,29 +2,64 @@
 
 set -e
 
-_DISTRIBUTION="jessie"
+_DISTRIBUTION="ascii"
 _ARCHITECTURES="amd64"
 _LINUX_FLAVOURS="amd64"
 _ARCHIVE_AREAS="main contrib non-free"
 _SOURCE="false"
+# _DEVUAN_INSTALLER="live"
 _DEVUAN_INSTALLER="live"
+
+#~ cd /usr/share/live/build/data/debian-cd
+#~ ln -s /usr/share/live/build/data/debian-cd/squeeze/ ascii
 
 
 # sudo apt-get install apt-cacher-ng
 # _MIRROR_BINARY="http://localhost:3142/packages.devuan.org/merged"
 
-_MIRROR_BINARY="http://packages.devuan.org/merged"
-# _MIRROR_BINARY="http://pkgmaster.devuan.org/devuan/"
-_INSTALLER_MIRROR="http://pkgmaster.devuan.org/devuan/"
+# _MIRROR_BINARY="http://packages.devuan.org/devuan"
+# _INSTALLER_MIRROR="http://pkgmaster.devuan.org/merged"
 
-# --debootstrap-options "--variant=minbase" \
-#	--debian-installer-gui false \
-#	--firmware-chroot false \
-#	--debian-installer-distribution "${_DISTRIBUTION}" \
-#	--debian-installer live \
-# 	--initramfs-compression lzma \
+_MIRROR_BINARY="http://pkgmaster.devuan.org/merged"
+# _MIRROR_BINARY="http://au.deb.devuan.org/merged"
+
+_INSTALLER_MIRROR="http://pkgmaster.devuan.org/devuan"
+
+# sudo apt-get install apt-cacher-ng
+# MIRROR_BINARY="http://localhost:3142/packages.devuan.org/merged"
+
+# MIRROR_BINARY="http://au.mirror.devuan.org/merged/"
+# MIRROR_BINARY="http://packages.devuan.org/devuan/dists/jessie/main/"
+# MIRROR_BINARY="http://au.mirror.devuan.org/devuan/dists/jessie/main/"
+# MIRROR_BINARY="http://188.165.204.61/repo/dists/jessie/main/"
+
+#	--build-with-chroot false \
+#	--debootstrap-options "--variant=minbase"
+#	--debootstrap-options "--variant=minbase" \
+#	--apt-source-archives true \
+#	--initramfs-compression lzma \
+#	--apt-options "--force-yes --yes" \
+#	--chroot-filesystem squashfs \
+# 	--bootappend-install "" \
+	#~ --binary-images "iso-hybrid" \	
+	#~ --bootloader "syslinux,grub2" \
+    #~ --bootloader "grub2" \
+    
+    #~ --parent-mirror-debian-installer "${_INSTALLER_MIRROR}" \
+    #~ --mirror-debian-installer "${_INSTALLER_MIRROR}" \    
+
+# sudo geany /usr/lib/live/build/binary_grub2 /usr/lib/live/build/binary_syslinux /usr/lib/live/build/binary
+# sudo geany /usr/lib/live/build/binary_syslinux
+# sudo geany /usr/lib/live/build/binary
+# 	--clean \
+# 	--debian-installer-gui "true" \	
+# 	--debian-installer-gui "falses" \
+
     #~ --parent-mirror-chroot "${_INSTALLER_MIRROR}" \
     #~ --mirror-chroot "${_INSTALLER_MIRROR}" \
+    
+	#~ --firmware-binary "true" \
+	#~ --firmware-chroot "true" \
 
 lb config noauto \
 	--mode devuan \
@@ -48,7 +83,8 @@ lb config noauto \
 	--mirror-binary "${_MIRROR_BINARY}" \
     --parent-mirror-debian-installer "${_INSTALLER_MIRROR}" \
     --mirror-debian-installer "${_INSTALLER_MIRROR}" \
-    --iso-application "Star Linux" \
+    --firmware-chroot "false" \
+	--iso-application "Star Linux" \
 	--iso-publisher "Star" \
 	--iso-volume "Star Live" \
 	--backports "false" \
@@ -60,5 +96,43 @@ lb config noauto \
 	--verbose \
 	--source "false" \
 "${@}"
+
+# --debootstrap-options "--variant=minbase" \
+#	--debian-installer-gui false \
+#	--firmware-chroot false \
+#	--debian-installer-distribution "${_DISTRIBUTION}" \
+#	--debian-installer live \
+# 	--initramfs-compression lzma \
+#~ "${@}"
+
+#~ lb config noauto \
+	#~ --mode "devuan" \
+	#~ --chroot-filesystem "squashfs" \
+	#~ --distribution "${DISTRIBUTION}" \
+	#~ --debian-installer-distribution "${DISTRIBUTION}" \
+	#~ --debian-installer "${DEVUAN_INSTALLER}" \
+	#~ --architectures "${ARCHITECTURES}" \
+	#~ --linux-flavours "${LINUX_FLAVOURS}" \
+	#~ --apt-recommends "false" \
+	#~ --apt-secure "true" \
+	#~ --apt-indices "false" \
+	#~ --apt-source-archives "false" \
+	#~ --archive-areas "${ARCHIVE_AREAS}" \
+	#~ --parent-mirror-bootstrap "${MIRROR_BINARY}" \
+	#~ --parent-mirror-binary "${MIRROR_BINARY}" \
+	#~ --mirror-bootstrap "${MIRROR_BINARY}" \
+	#~ --mirror-binary "${MIRROR_BINARY}" \
+	#~ --iso-application "Star Linux" \
+	#~ --iso-publisher "Star" \
+	#~ --iso-volume "Star Live" \
+	#~ --backports "false" \
+	#~ --security "false" \
+    #~ --updates "false" \
+	#~ --memtest "none" \
+	#~ --win32-loader "false" \
+	#~ --debug \
+	#~ --verbose \
+	#~ --source "false" \
+#~ "${@}"
 
 # lb config --apt-indices false --apt-recommends false --debootstrap-options "--variant=minbase" --firmware-chroot false --memtest none

@@ -87,6 +87,7 @@
 		</menu>		
 		<separator/>
 		<menu id="accessories" label="Accessories">
+<!--
 			<item label="Archive Manager">
 				<action name="Execute">
 					<command>
@@ -94,6 +95,7 @@
 					</command>
 				</action>
 			</item>
+-->
 		    <item label="Calculator">
 				<action name="Execute">
 					<command>

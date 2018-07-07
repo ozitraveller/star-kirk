@@ -3,7 +3,7 @@ Pin: release o=Debian
 Pin-Priority: -1
 
 # Package: *
-# Pin: release n=sid
+# Pin: release n=ceres
 # Pin-Priority: 500
 
 # Package: *
@@ -15,11 +15,11 @@ Pin-Priority: -1
 # Pin-Priority: 100
 
 Package: *
-Pin: release a=jessie
+Pin: release a=ascii
 Pin-Priority: 500
 
 Package: *
-Pin: release a=jessie-backports
+Pin: release a=ascii-backports
 Pin-Priority: 100
 
 # Package: *

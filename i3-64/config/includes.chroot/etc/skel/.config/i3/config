@@ -111,7 +111,9 @@
 #  exec --no-startup-id xfce4-power-manager
 #  exec --no-startup-id xset r rate 250 25
 #  exec --no-startup-id xset b off
-  exec --no-startup-id $HOME/.config/conky/start_conky_live_grey
+  exec --no-startup-id  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+  exec --no-startup-id xfce4-power-manager
+  exec --no-startup-id $HOME/.config/conky/start_conky
 #   exec --no-startup-id sleep 6; star-welcome --firstrun
 #  exec_always --no-startup-id feh --bg-scale $HOME/images/wallpapers/shared/mt-cook-nz.jpg
 

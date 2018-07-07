@@ -5,6 +5,7 @@
 ## will be executed to set-up your environment and launch any applications
 ## you want to run at startup.
 
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 ## Condition, only run this script under Xfce
 # if [ ! "$(pidof xfwm4)" ]; then
@@ -18,6 +19,8 @@
 #else
 #    tint2 &
 #fi
+
+pkill conky
 
 ## Detect and configure touchpad. See 'man synclient' for more info.
 #if egrep -iq 'touchpad' /proc/bus/input/devices; then
@@ -61,6 +64,19 @@
 ## Bad Nautilus, minimises the impact of running Nautilus under
 ## an Xfce session by applying some gconf settings. Safe to delete.
 # cb-bad-nautilus &
+
+## Start Thunar Daemon
+thunar --daemon &
+
+## Start mixer
+# volti &
+
+## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
+## Adjust the values according to your preferances.
+xset r rate 250 25 &
+
+## Turn on/off system beep
+xset b off &
 
 ## read xpdf, xterm, uxrvt etc.. config
 xrdb -merge ~/.Xresources
