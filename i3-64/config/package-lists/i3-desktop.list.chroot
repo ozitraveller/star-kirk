@@ -12,10 +12,12 @@ lxappearance
 lxterminal
 lxtask
 arandr
-geany
+leafpad
+# geany
 
-pcmanfm
-libfm-modules
+# pcmanfm
+# libfm-modules
+spacefm
 lsof
 udevil
 

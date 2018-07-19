@@ -148,6 +148,7 @@ STEPS_MAIN=('set-root-password' 'apt-update' 'apt-dist-upgrade' 'office-print' '
 STEPS_OFFICE_PRINT=('install-libreoffice' 'install-printer-packages' 'back')
 STEPS_MEDIA_GRAPHICS=('install-pulseaudio' 'install-gimp' 'back')
 # STEPS_OTHER=('install-java-packages' 'install-gigolo-gvfs' 'back')
+STEPS_BROWSER=('install-firefox' 'install-chromium' 'install-chrome' 'back')
 STEPS_OTHER=('install-java-packages' 'back')
 STEPS_DEVEL=('devel-install-version-control-tools' 'devel-install-ssh-server' 'devel-install-lamp-stack' 'devel-install-packaging-tools' 'back')
 
@@ -182,6 +183,11 @@ do
 				break
 			;;
 
+           "browser")
+				submenu "other" STEPS_BROWSER
+				break
+            ;;
+            
 			"other")
 				submenu "other" STEPS_OTHER
 				break

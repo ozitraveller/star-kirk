@@ -18,7 +18,8 @@ xfdesktop4
 
 menu
 
-geany
+# geany
+medit
 
 thunar
 thunar-data

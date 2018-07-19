@@ -12,10 +12,6 @@
 		<item label="Terminal"><action name="Execute"><command>x-terminal-emulator</command></action></item>
 		<item label="File Manager"><action name="Execute"><command>x-file-manager</command></action></item>
 		<item label="Web Browser"><action name="Execute"><command>x-www-browser</command></action></item>
-<!-- installer start -->
-        <separator/>
-			<item label="Install Star"><action name="Execute"><command>su-to-root -X -c /usr/sbin/debian-installer-launcher</command></action></item>
-<!-- installer end -->			
 		<separator/>
 		<menu id="settings" label="Settings">
 			<menu id="obConfig" label="Openbox">

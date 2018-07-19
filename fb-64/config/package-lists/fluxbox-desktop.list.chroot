@@ -8,27 +8,29 @@ connman-ui
 
 hsetroot
 
-xfce4-terminal
+# xfce4-terminal
+lxterminal
 # rxvt-unicode
 # compton
 arandr
 lxappearance
 lxtask
 gmrun
-geany
+medit
+# geany
 # evince
 # atril
 # zathura
 
-lsof
 
-thunar
-thunar-data
-thunar-volman
-thunar-archive-plugin
-thunar-media-tags-plugin
-# thunar-actions-plugin
-tumbler
+
+# thunar
+# thunar-data
+# thunar-volman
+# thunar-archive-plugin
+# thunar-media-tags-plugin
+## thunar-actions-plugin
+# tumbler
 
 yad
 
@@ -41,3 +43,7 @@ volti
 # file-roller
 xarchiver
 xfce4-appfinder
+
+spacefm
+udevil
+lsof

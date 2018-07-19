@@ -11,11 +11,6 @@
  	[exec] (Terminal) {x-terminal-emulator} <>
 	[exec] (File Manager) {x-file-manager} <>
 	[exec] (Web browser) {x-www-browser} <>
-# installer start
-# [separator]	
-# 	[exec] (Install Star) {su-to-root -X -c /usr/sbin/debian-installer-launcher} <>
-# installer end	
-# Automatically generated file. Do not edit (see /usr/share/doc/menu/html/index.html)
 [separator]	
       [submenu] (Settings) {}
          [exec] (ARandR Screen Layout Editor) {/usr/bin/arandr}
