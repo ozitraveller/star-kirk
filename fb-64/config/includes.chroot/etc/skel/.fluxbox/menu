@@ -5,8 +5,8 @@
 # ~/.fluxbox/init and change the session.menuFile path to ~/.fluxbox/menu
 
 [begin] (Star Fluxbox)
-    [exec] (Run Program) {xfce4-appfinder --collapsed}
-[separator]	
+#     [exec] (Run Program) {xfce4-appfinder --collapsed}
+# [separator]	
  	[exec] (Command) {gmrun} <>
  	[exec] (Terminal) {x-terminal-emulator} <>
 	[exec] (File Manager) {x-file-manager} <>
@@ -20,9 +20,9 @@
 [separator]	
       [submenu] (Accessories) {}
 #        [exec] (Archive Manager) {/usr/bin/file-roller} <>	
-		 [exec] (Calculator) {/usr/bin/qalculate-gtk} <>
-         [exec] (Geany Editor) {editor} <>
-         [exec] (Thunar) {x-file-manager} <>
+		 [exec] (Calculator) {/usr/bin/xcalc} <>
+         [exec] (Leafpad) {editor} <>
+         [exec] (Spacefm) {x-file-manager} <>
          [exec] (Terminal) {x-terminal-emulator} <>	
          [exec] (Xarchiver) {/usr/bin/xarchiver} <>		 		 		 
          [exec] (Xterm) {/usr/bin/xterm} <>		 		 		 
@@ -39,7 +39,7 @@
 		[end]
       [end]
       [submenu] (Internet) {}
-         [exec] (Firefox) {x-www-browser} <>
+         [exec] (Epiphany) {x-www-browser} <>
       [end]
       [submenu] (Multimedia) {}
          [exec] (Mpv) {x-media-player}

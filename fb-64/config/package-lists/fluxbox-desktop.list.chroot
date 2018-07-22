@@ -16,7 +16,7 @@ arandr
 lxappearance
 lxtask
 gmrun
-medit
+leafpad
 # geany
 # evince
 # atril
@@ -42,7 +42,7 @@ mpv
 volti
 # file-roller
 xarchiver
-xfce4-appfinder
+# xfce4-appfinder
 
 spacefm
 udevil

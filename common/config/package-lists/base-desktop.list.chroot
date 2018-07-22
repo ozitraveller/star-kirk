@@ -1,7 +1,8 @@
 desktop-base
 
-xfce4-notifyd
-libnotify-bin
+# xfce4-notifyd
+# libnotify-bin
+
 bash-completion
 # xfce4-mixer
 
@@ -16,10 +17,10 @@ dmz-cursor-theme
 # gnome-icon-theme
 # tango-icon-theme
 # gnome-themes-standard
-# gtk3-engines-xfce
+gtk3-engines-xfce
 gtk2-engines-murrine 
 gtk2-engines 
-# gtk2-engines-pixbuf
+gtk2-engines-pixbuf
 
 
 bum 
@@ -51,7 +52,7 @@ mirage
 conky-all 
 # file-roller
 # xarchiver
-qalculate-gtk
+# qalculate-gtk
 # transmission-gtk
 # deluge
 

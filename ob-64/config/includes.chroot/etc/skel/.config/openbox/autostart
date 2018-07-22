@@ -47,7 +47,10 @@ sleep 1
 xfce4-power-manager &
 
 ## Start Thunar Daemon
-thunar --daemon &
+# thunar --daemon &
+
+## Start notifications
+dunst &
 
 ## Start mixer
 # volti &

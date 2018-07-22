@@ -39,6 +39,7 @@ echo ""
 echo STAR-LIVE-Hook: "Removing icons"
 echo ""
 # Removing icons
+# 
 for ICON in mate menta Adwaita DarkPurpy
 do
 	if [ -d "/usr/share/icons/${ICON}" ]; then

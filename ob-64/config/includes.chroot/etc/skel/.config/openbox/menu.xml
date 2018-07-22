@@ -6,8 +6,10 @@
                 file:///usr/share/openbox/menu.xsd">
 
 	<menu id="root-menu" label="Openbox 3">
+<!--
 		<item label="Run Program"><action name="Execute"><command>/usr/bin/xfce4-appfinder --collapsed</command></action></item>
 		<separator/>
+-->
 		<item label="Command"><action name="Execute"><command>gmrun</command></action></item>
 		<item label="Terminal"><action name="Execute"><command>x-terminal-emulator</command></action></item>
 		<item label="File Manager"><action name="Execute"><command>x-file-manager</command></action></item>
@@ -95,11 +97,11 @@
 		    <item label="Calculator">
 				<action name="Execute">
 					<command>
-						/usr/bin/qalculate-gtk
+						/usr/bin/xcalc
 					</command>
 				</action>
 			</item>
-			<item label="Geany Editor">
+			<item label="Leafpad">
 				<action name="Execute">
 					<command>
 						editor
@@ -183,7 +185,7 @@
 			</menu>
 		</menu>
 		<menu id="internet" label="Internet">
-			<item label="Firefox">
+			<item label="Epiphany">
 				<action name="Execute">
 					<command>
 						x-www-browser

@@ -9,12 +9,16 @@ connman-ui
 # xfce4-mixer
 xfce4-terminal
 xfce4-appfinder
-xfce4-screenshooter 
+xfce4-screenshooter
+xfce4-notifyd
+libnotify-bin
 libxfce4ui-utils
 xfce4-taskmanager
 xfwm4 
 xfwm4-themes 
 xfdesktop4
+
+qalculate-gtk
 
 menu
 

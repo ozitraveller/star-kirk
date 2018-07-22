@@ -3,6 +3,8 @@ obconf
 obmenu
 tint2
 
+notify-osd
+
 connman
 connman-ui
 
@@ -18,7 +20,8 @@ arandr
 lxappearance
 lxtask
 gmrun
-medit
+leafpad
+# medit
 # geany
 
 # thunar
@@ -39,8 +42,10 @@ mpv
 volti
 # file-roller
 xarchiver
-xfce4-appfinder
+# xfce4-appfinder
 
 spacefm
 udevil
 lsof
+
+# paper-icon-theme

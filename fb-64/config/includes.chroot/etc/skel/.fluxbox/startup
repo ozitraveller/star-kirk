@@ -58,8 +58,11 @@ sleep 1
 ## Enable power management
 xfce4-power-manager &
 
+## Start notifications
+dunst &
+
 ## Start Thunar Daemon
-thunar --daemon &
+# thunar --daemon &
 
 ## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
 ## Adjust the values according to your preferances.
