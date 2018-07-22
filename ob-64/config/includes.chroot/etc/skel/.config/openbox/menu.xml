@@ -115,7 +115,7 @@
 					</command>
 				</action>
 			</item>
-			<item label="Thunar">
+			<item label="Spacefm">
 				<action name="Execute">
 					<command>
 						x-file-manager
