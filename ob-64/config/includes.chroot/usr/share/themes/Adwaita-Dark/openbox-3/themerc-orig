@@ -1,30 +1,31 @@
 !! MENU SETTINGS......................................
 
-!! menu title
+!! Menu background
+menu.items.bg: flat gradient vertical
+menu.items.bg.color: #33393B
+menu.items.bg.colorTo: #33393B
+menu.border.width: 7
+menu.border.color: #33393B
+menu.overlap.x: -12
+menu.overlap.y:	0
 
-menu.title.bg: flat gradient vertical bevel1
-menu.title.bg.color: #33393A
-menu.title.bg.colorTo: #33393A
-menu.title.text.color: #E6E6E6
-menu.title.text.justify: right
+!! Menu text
+menu.items.text.color: #A4A5A9
+menu.items.justify: left
+menu.items.disabled.text.color: #606060
 
-menu.separator.color: #4C5153
+!! Menu headers
+menu.title.bg: raised splitvertical gradient
+menu.title.bg.color: #353535
+menu.title.bg.colorTo: #303030
+menu.title.text.color: #A4A5A9
+menu.title.text.justify: center
 
-!! window unfocused
-
-menu.items.bg: flat solid
-menu.items.bg.color: #33393A
-menu.items.text.color: #E6E6E6
-menu.items.disabled.text.color: #8A8A8A
-
-!! window focused
-
-menu.items.active.bg: flat solid
-menu.items.active.bg.color: #6B6B6B
-menu.items.active.bg.colorTo:#6B6B6B
-menu.items.active.text.color: #FFFFFF
-menu.bullet.selected.image.color: #FFFFFF
-
+!! Selected menu item
+menu.items.active.bg: flat
+menu.items.active.bg.color: #4084D6
+menu.items.active.bg.colorTo: #4084D6
+menu.items.active.text.color: white
 
 !! WINDOW SETTINGS.........................
 
@@ -109,7 +110,7 @@ window.active.button.unpressed.image.color: #94969A
 
 window.active.button.hover.bg: flat solid
 window.active.button.hover.bg.color: #33393B
-window.active.button.hover.image.color: #33393A
+window.active.button.hover.image.color: #4084D6
 
 window.active.button.pressed.bg: flat solid
 window.active.button.pressed.bg.color: #33393B
@@ -120,7 +121,7 @@ window.active.button.disabled.bg.color: #33393B
 window.active.button.disabled.image.color: #33393B
 
 window.active.button.toggled.unpressed.image.color: #94969A
-window.active.button.toggled.hover.image.color: #33393A
+window.active.button.toggled.hover.image.color: #4084D6
 window.active.button.toggled.pressed.image.color: #E26767
 
 !! INACTIVE	
