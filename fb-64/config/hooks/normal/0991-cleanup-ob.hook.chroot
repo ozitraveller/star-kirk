@@ -28,7 +28,7 @@ done
 echo STAR-LIVE-Hook: "Removing themes"
 echo ""
 # Removing themes
-for THEME in Artwiz-boxed Bear2 Mikachu Natura Nightmare Nightmare-01 Nightmare-02 Nightmare-03 Onyx Onyx-Citrus Orang Syscrash Xfce gtk-3.0 Xfce-4.0 Xfce-4.2 Xfce-4.4 Xfce-4.6 Xfce-b5 Xfce-basic Xfce-cadmium Xfce-curve Xfce-dawn Xfce-dusk Xfce-flat Xfce-kde2 Xfce-kolors Xfce-light Xfce-orange Xfce-redmondxp Xfce-saltlake Xfce-smooth Xfce-stellar Xfce-winter
+for THEME in Artwiz-boxed Bear2 Clearlooks-3.4 Clearlooks-Olive Crux Emacs Industrial Mikachu Mist Natura Nightmare Nightmare-01 Nightmare-02 Nightmare-03 Onyx Onyx-Citrus Orang Raleigh Redmond ThinIce Syscrash Xfce gtk-3.0 Xfce-4.0 Xfce-4.2 Xfce-4.4 Xfce-4.6 Xfce-b5 Xfce-basic Xfce-cadmium Xfce-curve Xfce-dawn Xfce-dusk Xfce-flat Xfce-kde2 Xfce-kolors Xfce-light Xfce-orange Xfce-redmondxp Xfce-saltlake Xfce-smooth Xfce-stellar Xfce-winter
 do
 	if [ -d "/usr/share/themes/${THEME}" ]; then
 		rm -rf "/usr/share/themes/${THEME}"
