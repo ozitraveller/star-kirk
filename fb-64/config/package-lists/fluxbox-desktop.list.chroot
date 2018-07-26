@@ -2,6 +2,9 @@ fluxbox
 # fbpager
 # fbpanel
 
+# notify-osd
+dunst
+
 connman
 connman-ui
 # wicd

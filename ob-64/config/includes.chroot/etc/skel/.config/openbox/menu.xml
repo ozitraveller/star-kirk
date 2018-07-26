@@ -7,7 +7,7 @@
 
 	<menu id="root-menu" label="Openbox 3">
 <!--
-		<item label="Run Program"><action name="Execute"><command>/usr/bin/xfce4-appfinder --collapsed</command></action></item>
+		<item label="Run Program"><action name="Execute"><command>/usr/bin/xfce4-appfinder -collapsed</command></action></item>
 		<separator/>
 -->
 		<item label="Command"><action name="Execute"><command>gmrun</command></action></item>

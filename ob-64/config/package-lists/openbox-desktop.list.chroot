@@ -3,7 +3,8 @@ obconf
 obmenu
 tint2
 
-notify-osd
+# notify-osd
+dunst
 
 connman
 connman-ui

@@ -1,5 +1,8 @@
 jwm
 
+# notify-osd
+dunst
+
 connman
 connman-ui
 # wicd

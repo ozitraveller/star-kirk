@@ -119,12 +119,12 @@ launcher_background_id = 0
 launcher_icon_size = 24
 # Specify icon theme names with launcher_icon_theme. 
 # if you have an XSETTINGS manager running (like xfsettingsd), tint2 will follow your current theme.
-launcher_icon_theme = gnome-brave
+launcher_icon_theme = Grey-Maia
 # Each launcher_item_app must be a full path to a .desktop file
-launcher_item_app = /usr/share/applications/xfce4-terminal.desktop
-launcher_item_app = /usr/share/applications/Thunar.desktop
+launcher_item_app = /usr/share/applications/lxterminal.desktop
+launcher_item_app = /usr/share/applications/spacefm.desktop
 launcher_item_app = /usr/share/applications/mpv.desktop
-launcher_item_app = /usr/share/applications/iceweasel.desktop
+launcher_item_app = /usr/share/applications/epiphany.desktop
 
 # System Tray
 systray = 1
