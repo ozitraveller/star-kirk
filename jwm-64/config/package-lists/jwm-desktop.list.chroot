@@ -14,20 +14,20 @@ lxrandr
 lxappearance
 leafpad
 # gmrun
-leafpad
 
-# pcmanfm
-# libfm-modules
-spacefm
+pcmanfm
+libfm-modules
+gvfs-backends
+gvfs-fuse
 lsof
-udevil
 
-# gvfs-backends
-# gvfs-fuse
+# spacefm
+# udevil
 
 yad
 
 mpv
+# pnmixer
 # file-roller
 xarchiver
 

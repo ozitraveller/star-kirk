@@ -26,8 +26,8 @@ echo "  Replacing..."
 	rm -f binary/live/vmlinuz
 	rm -f binary/live/initrd.img
 
-	ln binary/live/vmlinuz-4.9.0-6-amd64 binary/install/gtk/vmlinuz
-	ln binary/live/vmlinuz-4.9.0-6-amd64 binary/install/vmlinuz
+	ln binary/live/vmlinuz-4.9.0-7-amd64 binary/install/gtk/vmlinuz
+	ln binary/live/vmlinuz-4.9.0-7-amd64 binary/install/vmlinuz
 fi
 echo ""
 

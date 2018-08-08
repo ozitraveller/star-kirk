@@ -907,7 +907,7 @@
   </application>
 
   # end of the example
--->
+
     <application name="gmessage">
       <decor>no</decor>
       <shade>no</shade>
@@ -916,6 +916,13 @@
       <fullscreen>no</fullscreen>
       <maximized>no</maximized>
     </application>
+-->    
+	<application name="obconf">
+      <size>
+        <width>45%</width>
+      </size>
+    </application>
+    
 
 <!--
     <application class="Gimp" name="gimp" role="gimp-toolbox" type="utility">

@@ -15,10 +15,14 @@ arandr
 leafpad
 # geany
 
-# pcmanfm
-# libfm-modules
-spacefm
+pcmanfm
+libfm-modules
+gvfs-backends
+gvfs-fuse
 lsof
-udevil
+
+# spacefm
+# lsof
+# udevil
 
 yad

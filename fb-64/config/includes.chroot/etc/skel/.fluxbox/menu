@@ -7,7 +7,7 @@
 [begin] (Star Fluxbox)
 #     [exec] (Run Program) {xfce4-appfinder --collapsed}
 # [separator]	
- 	[exec] (Command) {gmrun} <>
+# 	[exec] (Command) {gmrun} <>
  	[exec] (Terminal) {x-terminal-emulator} <>
 	[exec] (File Manager) {x-file-manager} <>
 	[exec] (Web browser) {x-www-browser} <>
@@ -15,14 +15,13 @@
       [submenu] (Settings) {}
          [exec] (ARandR Screen Layout Editor) {/usr/bin/arandr}
          [exec] (Appearance) {/usr/bin/lxappearance} <>
-         [exec] (Power Manager) {/usr/bin/xfce4-power-manager-settings} <>
       [end]
 [separator]	
       [submenu] (Accessories) {}
 #        [exec] (Archive Manager) {/usr/bin/file-roller} <>	
 		 [exec] (Calculator) {/usr/bin/xcalc} <>
          [exec] (Leafpad) {editor} <>
-         [exec] (Spacefm) {x-file-manager} <>
+         [exec] (Pcmanfm) {x-file-manager} <>
          [exec] (Terminal) {x-terminal-emulator} <>	
          [exec] (Xarchiver) {/usr/bin/xarchiver} <>		 		 		 
          [exec] (Xterm) {/usr/bin/xterm} <>		 		 		 
@@ -30,8 +29,6 @@
       [submenu] (Graphics) {}
          [exec] (Mirage) {mirage} <>
          [submenu] (Take Screenshot) {}
- 			[exec] (Screenshooter) {/usr/bin/xfce4-screenshooter} <>
- 			[separator]	
 			[exec] (Now) {scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; mirage ~/images/$f'} <>
 			[exec] (In 5 Seconds...) {scrot -d 5 '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; mirage ~/images/$f'} <>
 			[exec] (In 10 Seconds...) {scrot -d 10 '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; mirage ~/images/$f'} <>
@@ -43,7 +40,7 @@
       [end]
       [submenu] (Multimedia) {}
          [exec] (Mpv) {x-media-player}
-         [exec] (Volti) {/usr/bin/volti}
+         [exec] (Audio Mixer) {x-terminal-emulator -t 'Audio Mixer' -e /usr/bin/alsamixer}
       [end]
       [submenu] (Office) {}
          [exec] (Pdf Viewer) {/usr/bin/xpdf}

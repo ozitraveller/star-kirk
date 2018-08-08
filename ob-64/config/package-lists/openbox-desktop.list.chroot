@@ -20,7 +20,7 @@ lxterminal
 arandr
 lxappearance
 lxtask
-gmrun
+# gmrun
 leafpad
 # medit
 # geany
@@ -35,18 +35,21 @@ leafpad
 
 yad
 
-# pmount
-# gvfs-backends
-# gvfs-fuse
+pcmanfm
+libfm-modules
+gvfs-backends
+gvfs-fuse
+lsof
 
 mpv
-volti
+# pnmixer
+# volti
 # file-roller
 xarchiver
 # xfce4-appfinder
 
-spacefm
-udevil
-lsof
+# spacefm
+# udevil
+# lsof
 
 # paper-icon-theme

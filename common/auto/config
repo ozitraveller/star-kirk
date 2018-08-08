@@ -7,7 +7,6 @@ _ARCHITECTURES="amd64"
 _LINUX_FLAVOURS="amd64"
 _ARCHIVE_AREAS="main contrib non-free"
 _SOURCE="false"
-# _DEVUAN_INSTALLER="live"
 _DEVUAN_INSTALLER="live"
 
 #~ cd /usr/share/live/build/data/debian-cd

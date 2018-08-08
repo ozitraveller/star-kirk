@@ -17,7 +17,7 @@ dmz-cursor-theme
 # gnome-icon-theme
 # tango-icon-theme
 # gnome-themes-standard
-gtk3-engines-xfce
+# gtk3-engines-xfce
 gtk2-engines-murrine 
 gtk2-engines 
 gtk2-engines-pixbuf
@@ -68,7 +68,7 @@ scrot
 # mutt
 # xfce4-appfinder
 # xfburn
-xfce4-screenshooter
+# xfce4-screenshooter
 xpdf
 # zathura
 

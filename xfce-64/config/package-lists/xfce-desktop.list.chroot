@@ -38,6 +38,9 @@ tumbler
 # gvfs-fuse
 
 mpv
-volti
+# volti
 file-roller
 # xarchiver
+
+# gnome-brave-icon-theme
+gtk3-engines-xfce

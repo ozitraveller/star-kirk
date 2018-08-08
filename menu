@@ -4,7 +4,7 @@ set -e
 
 RED='\033[0;41;30m'
 STD='\033[0;0;39m'
-_VERSION='2.0.0'
+_VERSION='2.0.1'
 _SOURCE='star-kirk'
 
 _FLAVOURS=""

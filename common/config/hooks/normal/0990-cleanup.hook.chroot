@@ -8,7 +8,7 @@
 ## under certain conditions; see COPYING for details.
 
 
-set -e
+# set -e
 
 echo STAR-LIVE-Hook: "$0"
 echo ""
@@ -35,29 +35,6 @@ echo ""
 		#echo "WARNING: ${PACKAGE} isn't installed"
 	#fi
 #done
-
-echo STAR-LIVE-Hook: "Removing icons"
-echo ""
-# Removing icons
-# 
-for ICON in mate menta Adwaita DarkPurpy
-do
-	if [ -d "/usr/share/icons/${ICON}" ]; then
-		rm -rf "/usr/share/icons/${ICON}"
-		echo "WARNING: ${ICON} removed"
-	fi
-done
-
-echo STAR-LIVE-Hook: "Removing themes"
-echo ""
-# Removing themes
-for THEME in Clearlooks-Phenix-DarkPurpy
-do
-	if [ -d "/usr/share/themes/${THEME}" ]; then
-		rm -rf "/usr/share/themes/${THEME}"
-		echo "WARNING: ${THEME} removed"
-	fi
-done
 
 dpkg --purge debconf-i18n
 # dpkg --purge gcc-4.8-base
@@ -87,7 +64,6 @@ rm -rf /var/cache/man/*
 #rm -rf /usr/share/zoneinfo/*
 #rm -rf /var/cache/man/*
 
-rm -rf /usr/share/slim/themes/devuan-curve/
 rm -f /etc/apt/sources.list.d/packages.list
 
 # find /usr/share/doc -depth -type f ! -name copyright|xargs rm || true
@@ -132,15 +108,4 @@ do
 	: > ${FILE}
 done
 
-#echo STAR-LIVE-Hook: "Reduce themes"
-#echo ""
-#mkdir /usr/share/tmpThemes
-#cd  /usr/share/tmpThemes
-#mv  /usr/share/themes/* .
-#mv ./Adwaita /usr/share/themes/
-#mv ./Greybird /usr/share/themes/
-#mv ./Clearlooks /usr/share/themes/
-##rm -rf  /usr/share/tmpThemes/*
-# rm -rf  /usr/share/icons/mate
-# rm -rf  /usr/share/icons/menta
-rm -rf /usr/share/slim/themes/{default,default-OLD,desktop-slim-theme,devuan-curve-purpy}
+rm -rf /usr/share/slim/themes/{default,default-OLD,desktop-slim-theme,devuan-curve,devuan-curve-purpy}
