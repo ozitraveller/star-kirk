@@ -10,7 +10,7 @@ connman-ui
 hsetroot
 
 lxterminal
-lxrandr
+arandr
 lxappearance
 leafpad
 # gmrun
