@@ -10,14 +10,15 @@ iw
 localepurge
 openssh-server
 openssh-sftp-server
-# openssh-client
+openssh-client
 # openssl	
 mc	
 mc-data	
 debfoster
 rsync
 ufw
-
+zip
+unzip
 
 setnet
 wpasupplicant
