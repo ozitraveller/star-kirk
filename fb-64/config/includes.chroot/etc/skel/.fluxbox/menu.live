@@ -5,9 +5,16 @@
 # ~/.fluxbox/init and change the session.menuFile path to ~/.fluxbox/menu
 
 [begin] (Star Fluxbox)
+#     [exec] (Run Program) {xfce4-appfinder --collapsed}
+# [separator]	
+# 	[exec] (Command) {gmrun} <>
  	[exec] (Terminal) {x-terminal-emulator} <>
 	[exec] (File Manager) {x-file-manager} <>
 	[exec] (Web browser) {x-www-browser} <>
+# installer start
+[separator]	
+	[exec] (Install Star) {su-to-root -X -c /usr/sbin/debian-installer-launcher} <>
+# installer end		
 [separator]	
       [submenu] (Settings) {}
          [exec] (ARandR Screen Layout Editor) {/usr/bin/arandr}

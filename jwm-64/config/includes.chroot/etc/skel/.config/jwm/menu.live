@@ -7,7 +7,11 @@
    <RootMenu height="15" onroot="123">
       <Program icon="terminal.png" label="Terminal">x-terminal-emulator</Program>
       <Program icon="thunar.png" label="File Manager">x-file-manager</Program>
-      <Program icon="firefox.png" label="Web Browser">x-www-browser</Program>      
+      <Program icon="firefox.png" label="Web Browser">x-www-browser</Program>
+<!-- installer start -->
+      <Separator/>
+	  <Program label="Install Star" confirm="false">su-to-root -X -c /usr/sbin/debian-installer-launcher</Program>	
+<!-- installer end -->	        
       <Separator/>
       <Menu icon="folder.png" label="Settings">
 		  <Menu icon="folder.png" label="Jwm">

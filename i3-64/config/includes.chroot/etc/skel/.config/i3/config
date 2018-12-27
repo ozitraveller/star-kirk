@@ -81,7 +81,7 @@
   bindsym $mod+Ctrl+f exec x-file-manager
   bindsym $mod+Return exec x-terminal-emulator
   # bindsym $mod+Ctrl+m exec x-media-player
-  bindsym $mod+Ctrl+n exec wicd-curses
+  bindsym $mod+Ctrl+n exec wicd-client --tray
   bindsym $mod+Ctrl+l exec /usr/bin/i3lock -n -p default --color=000000
   bindsym $mod+d exec $HOME/.config/dmenu/dmenu-bind.sh
 #  bindsym $mod+d exec dmenu_run

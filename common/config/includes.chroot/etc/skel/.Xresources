@@ -1,11 +1,14 @@
+!! run this command after every change: $ xrdb -merge $HOME/.Xresources
+
+
 ! urxvt ----------------------------------------------------------------------
-URxvt*iconFile: /usr/share/icons/gnome/16x16/apps/utilities-terminal.png
+URxvt*iconFile: /usr/share/icons/Grey-Maia/apps/16/utilities-terminal.svg
 URxvt*background: Black
 URxvt*foreground: White
 URxvt*geometry: 80x30
 URxvt*scrollBar: false
 
-"URxvt.font: 9x15"
+"URxvt.font: 9x12"
 
 !-- Xft settings -- !
 Xft.dpi:        96
@@ -15,8 +18,8 @@ Xft.hinting:    true
 Xft.hintstyle:  hintfull
 
 ! -- Fonts -- !
-URxvt.font:xft:Monospace:pixelsize=15
-URxvt.boldfont:xft:Monospace-Bold:pixelsize=15
+URxvt.font:xft:Monospace:pixelsize=12
+URxvt.boldfont:xft:Monospace-Bold:pixelsize=12
 
 
 ! xterm ----------------------------------------------------------------------

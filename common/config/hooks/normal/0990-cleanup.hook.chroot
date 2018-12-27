@@ -108,4 +108,4 @@ do
 	: > ${FILE}
 done
 
-rm -rf /usr/share/slim/themes/{default,default-OLD,desktop-slim-theme,devuan-curve,devuan-curve-purpy}
+rm -rf /usr/share/upstart

@@ -23,7 +23,7 @@ qalculate-gtk
 menu
 
 # geany
-medit
+mousepad
 
 thunar
 thunar-data

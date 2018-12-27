@@ -17,7 +17,7 @@ echo STAR-LIVE-Hook: "$0"
 echo ""
 
 echo "Replace debian installer kernel with hard link to live kernel if they do not differ:"
-if [ "$(cmp -s binary/install/vmlinuz binary/live/vmlinuz-4.9.0-6-amd64 ; echo $?)" = "0" ]
+if [ "$(cmp -s binary/install/vmlinuz binary/live/vmlinuz-REPLACEME-amd64 ; echo $?)" = "0" ]
 then
 echo "  Replacing..."
 
@@ -26,8 +26,8 @@ echo "  Replacing..."
 	# rm -f binary/live/vmlinuz
 	# rm -f binary/live/initrd.img
 
-	ln binary/live/vmlinuz-4.9.0-7-amd64 binary/install/gtk/vmlinuz
-	ln binary/live/vmlinuz-4.9.0-7-amd64 binary/install/vmlinuz
+	ln binary/live/vmlinuz-REPLACEME-amd64 binary/install/gtk/vmlinuz
+	ln binary/live/vmlinuz-REPLACEME-amd64 binary/install/vmlinuz
 fi
 echo ""
 

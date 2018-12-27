@@ -3,8 +3,7 @@ i3status
 # i3blocks
 dunst
 
-wicd-curses
-wicd-daemon
+wicd
 
 hsetroot
 

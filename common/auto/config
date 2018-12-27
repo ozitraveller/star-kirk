@@ -22,7 +22,7 @@ _DEVUAN_INSTALLER="live"
 _MIRROR_BINARY="http://deb.devuan.org/merged"
 # _MIRROR_BINARY="http://au.deb.devuan.org/merged"
 
-_INSTALLER_MIRROR="http://packages.devuan.org/merged"
+_INSTALLER_MIRROR="http://deb.devuan.org/devuan"
 
 # sudo apt-get install apt-cacher-ng
 # MIRROR_BINARY="http://localhost:3142/packages.devuan.org/merged"
@@ -58,6 +58,9 @@ _INSTALLER_MIRROR="http://packages.devuan.org/merged"
     
 	#~ --firmware-binary "true" \
 	#~ --firmware-chroot "true" \
+
+# 	--initramfs-compression "lzma" \
+# 	--debootstrap-options "--variant=minbase" \
 
 lb config noauto \
 	--mode devuan \

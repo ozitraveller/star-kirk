@@ -37,8 +37,9 @@ alsa-utils
 apulse
 # pulseaudio
 # pulseaudio-module-x11
-# rtkit
+rtkit
 
+# apt-listbugs
 apt-listchanges
 
 tasksel
@@ -169,3 +170,5 @@ bind9-host
 traceroute
 
 apt-transport-https
+
+openssh-server

@@ -4,8 +4,9 @@ set -e
 
 RED='\033[0;41;30m'
 STD='\033[0;0;39m'
-_VERSION='2.0.1'
+_VERSION='2.0.2'
 _SOURCE='star-kirk'
+_KERNEL='4.9.0-8'
 
 _FLAVOURS=""
 # _NAME="star-morbius-"${_VERSION} # "-beta2"
@@ -307,7 +308,8 @@ update(){
 }
 
 custom(){
-	
+# echo "custom"		
+
 	SOURCEROOT="/home/$SUDO_USER/${_SOURCE}"
 	#echo "${SOURCEROOT}"
 
@@ -341,10 +343,17 @@ custom(){
 	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/issue.net
 	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/motd
 	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/os-release
+	
+	sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./hooks/normal/0001-initrdhacks.hook.binary
+	if [ "${1}" != "netinst"]; then
+		sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./bootloaders/isolinux/gtk.cfg
+	fi
+	sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./includes.binary/boot/grub/grub.cfg
 }
 
 custom-live(){
 # live-installer
+# echo "custom-live"	
 	
 	SOURCEROOT="/home/$SUDO_USER/${_SOURCE}"
 	#echo "${SOURCEROOT}"
@@ -385,10 +394,14 @@ custom-live(){
 	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/issue.net
 	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/motd
 	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/os-release
+	
+	sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./hooks/normal/0001-initrdhacks.hook.binary
+	sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./bootloaders/isolinux/gtk.cfg
+	sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./includes.binary/boot/grub/grub.cfg
 }
 
 standard(){
-	
+# echo "standard"	
 	SOURCEROOT="/home/$SUDO_USER/${_SOURCE}"
 	#echo "${SOURCEROOT}"
 
@@ -440,7 +453,12 @@ standard(){
 	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/issue.net
 	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/motd
 	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/os-release
-
+	
+	sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./hooks/normal/0001-initrdhacks.hook.binary
+	if [ "${1}" != "netinst"]; then
+		sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./bootloaders/isolinux/gtk.cfg
+	fi
+	sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./includes.binary/boot/grub/grub.cfg
 }
 
 
@@ -449,7 +467,7 @@ main(){
 	clear
 	echo -e "\t~~~~~~~~~~~~~~~~~~~~~"	
 	echo -e "\t M A I N - M E N U"
-	echo -e "\t~~~~~~~~~~~~~~~~~~~~~\t\t"$_SOURCE" ["$_VERSION"]"
+	echo -e "\t~~~~~~~~~~~~~~~~~~~~~\t\t"$_SOURCE" "$_VERSION"/"$_KERNEL
 	echo " "
 	echo -e "\ts. Setup    x. Xfce       n. Netinst"
 	echo -e "\tr. Remove   f. Fluxbox    jm. Jwm minimal"

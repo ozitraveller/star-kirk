@@ -7,7 +7,6 @@ _ARCHITECTURES="amd64"
 _LINUX_FLAVOURS="amd64"
 _ARCHIVE_AREAS="main contrib non-free"
 _SOURCE="false"
-# _DEVUAN_INSTALLER="live"
 _DEVUAN_INSTALLER="live"
 
 #~ cd /usr/share/live/build/data/debian-cd
@@ -20,10 +19,10 @@ _DEVUAN_INSTALLER="live"
 # _MIRROR_BINARY="http://packages.devuan.org/devuan"
 # _INSTALLER_MIRROR="http://pkgmaster.devuan.org/merged"
 
-_MIRROR_BINARY="http://pkgmaster.devuan.org/merged"
+_MIRROR_BINARY="http://deb.devuan.org/merged"
 # _MIRROR_BINARY="http://au.deb.devuan.org/merged"
 
-_INSTALLER_MIRROR="http://pkgmaster.devuan.org/devuan"
+_INSTALLER_MIRROR="http://deb.devuan.org/devuan"
 
 # sudo apt-get install apt-cacher-ng
 # MIRROR_BINARY="http://localhost:3142/packages.devuan.org/merged"

@@ -19,7 +19,7 @@ dmz-cursor-theme
 # gnome-themes-standard
 # gtk3-engines-xfce
 gtk2-engines-murrine 
-gtk2-engines 
+# gtk2-engines 
 gtk2-engines-pixbuf
 
 
@@ -47,7 +47,7 @@ suckless-tools
 # iceweasel
 # netsurf
 epiphany-browser
-mirage
+# mirage
 # geeqie
 conky-all 
 # file-roller

@@ -9,8 +9,6 @@ iw
 # wireless-tools
 localepurge
 openssh-server
-openssh-sftp-server
-openssh-client
 # openssl	
 mc	
 mc-data	
