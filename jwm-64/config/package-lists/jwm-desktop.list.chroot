@@ -31,5 +31,5 @@ mpv
 # file-roller
 xarchiver
 
-# use demenu instead
+# use dmenu instead
 # xfce4-appfinder

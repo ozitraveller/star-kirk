@@ -47,12 +47,12 @@ if [ ! -f "/home/${USER}/.config/star/star-setup" ]; then
     
     ln -s /usr/share/backgrounds /home/"${USER}"/images/wallpapers/shared
 
-	#~ if [ "${USER}" != "starlive" ]; then
-		#~ if [ -f "/home/${USER}/.config/jwm/menu" ]; then
-			#~ rm /home/"${USER}"/.config/jwm/menu
-			#~ mv /home/"${USER}"/.config/jwm/menu.bak /home/"${USER}"/.config/jwm/menu
-		#~ fi		
-	#~ fi
+	if [ "${USER}" != "starlive" ]; then
+		if [ -f "/home/${USER}/.config/jwm/menu" ]; then
+			rm /home/"${USER}"/.config/jwm/menu
+			mv /home/"${USER}"/.config/jwm/menu.bak /home/"${USER}"/.config/jwm/menu
+		fi		
+	fi
 
 	touch /home/"${USER}"/.config/star/star-setup
     chown -R "${USER}":"${USER}" /home/"${USER}"

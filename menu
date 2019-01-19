@@ -7,6 +7,7 @@ STD='\033[0;0;39m'
 _VERSION='2.0.2'
 _SOURCE='star-kirk'
 _KERNEL='4.9.0-8'
+_SELECTION=""
 
 _FLAVOURS=""
 # _NAME="star-morbius-"${_VERSION} # "-beta2"
@@ -130,6 +131,7 @@ setup(){
 
 update(){
 
+	# _SELECTION="${1}/${2}"
 	if [ ! $2 ] ; then
 		standard $1	
 	else
@@ -345,7 +347,7 @@ custom(){
 	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/os-release
 	
 	sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./hooks/normal/0001-initrdhacks.hook.binary
-	if [ "${1}" != "netinst"]; then
+	if [ "$1" != 'netinst' ]; then
 		sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./bootloaders/isolinux/gtk.cfg
 	fi
 	sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./includes.binary/boot/grub/grub.cfg
@@ -455,7 +457,9 @@ standard(){
 	sed -i -e 's/REPLACEME/'${_VERSION}'/g' ./includes.chroot/etc/os-release
 	
 	sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./hooks/normal/0001-initrdhacks.hook.binary
-	if [ "${1}" != "netinst"]; then
+	#_SELECTION=$1"/"$2
+	if [ "$1" != 'netinst' ]; then
+# 		_SELECTION="netinst"
 		sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./bootloaders/isolinux/gtk.cfg
 	fi
 	sed -i -e 's/REPLACEME/'${_KERNEL}'/g' ./includes.binary/boot/grub/grub.cfg
@@ -465,7 +469,7 @@ standard(){
 main(){
 	
 	clear
-	echo -e "\t~~~~~~~~~~~~~~~~~~~~~"	
+	echo -e "\t~~~~~~~~~~~~~~~~~~~~~"
 	echo -e "\t M A I N - M E N U"
 	echo -e "\t~~~~~~~~~~~~~~~~~~~~~\t\t"$_SOURCE" "$_VERSION"/"$_KERNEL
 	echo " "
