@@ -1,5 +1,13 @@
 
  ## Star REPLACEME ##
+ 
+ 
+ Execute the setup script in you HOME folder
+ 
+ ~/setup.sh
+ 
+ This updates the sources.list, preference & apt.conf files
+ 
 
 Star comes with ABSOLUTELY NO WARRANTY,
 to the extent permitted by applicable law.

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.7
 
 import pygtk
 pygtk.require('2.0')
@@ -20,8 +20,8 @@ class star_exit:
 
 	def logout_action(self,btn):
 		self.disable_buttons()
-		self.status.set_label("Exiting Fluxbox, please standby...")
-		os.system("fluxbox-remote 'Exit'")
+		self.status.set_label("Exiting Jwm, please standby...")
+		os.system("jwm -exit")
 
 	def suspend_action(self,btn):
 		self.disable_buttons()
@@ -33,12 +33,12 @@ class star_exit:
 	def reboot_action(self,btn):
 		self.disable_buttons()
 		self.status.set_label("Rebooting, please standby...")
-		os.system("dbus-send --system --print-reply --dest=\"org.freedesktop.ConsoleKit\" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart")
+		os.system("dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart")
 		
 	def shutdown_action(self,btn):
 		self.disable_buttons()
 		self.status.set_label("Shutting down, please standby...")
-		os.system("dbus-send --system --print-reply --dest=\"org.freedesktop.ConsoleKit\" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop")
+		os.system("dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop")
 		
 	def create_window(self):
 		self.window = gtk.Window()

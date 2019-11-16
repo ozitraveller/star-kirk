@@ -152,6 +152,7 @@ mobile-broadband-provider-info
 iw
 wireless-tools
 
+lsb-base
 lsb-release
 
 # discover
@@ -172,3 +173,7 @@ traceroute
 apt-transport-https
 
 openssh-server
+
+hwinfo
+pmount
+# usbpmount

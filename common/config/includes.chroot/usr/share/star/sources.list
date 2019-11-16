@@ -33,7 +33,7 @@ deb http://deb.devuan.org/merged ascii-backports main contrib non-free
 
 
 #### Google Linux Software Repositories
-# deb http://dl.google.com/linux/chrome/deb/ stable main 
+# deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main 
 
 #### VirtualBox
 # deb http://download.virtualbox.org/virtualbox/debian/ ascii contrib 

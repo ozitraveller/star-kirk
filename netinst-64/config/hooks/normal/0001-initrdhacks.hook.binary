@@ -16,19 +16,32 @@ set -e
 echo DIY-LIVE-Hook: "$0"
 echo ""
 
-echo "Replace debian installer kernel with hard link to live kernel if they do not differ:"
-if [ "$(cmp -s binary/install/vmlinuz binary/live/vmlinuz-4.9.0-6-amd64 ; echo $?)" = "0" ]
-then
-echo "  Replacing..."
+#~ echo "Replace debian installer kernel with hard link to live kernel if they do not differ:"
+#~ if [ "$(cmp -s binary/install/vmlinuz binary/live/vmlinuz-REPLACEME-i386 ; echo $?)" = "0" ]
+#~ then
+echo "  Replacing...REPLACEME"
+#~ echo $PWD
 
-	rm -f binary/install/gtk/vmlinuz
-	rm -f binary/install/vmlinuz
-	rm -f binary/live/vmlinuz
-	rm -f binary/live/initrd.img
+#~ ls -al
 
-	ln binary/live/vmlinuz-4.9.0-7-amd64 binary/install/gtk/vmlinuz
-	ln binary/live/vmlinuz-4.9.0-7-amd64 binary/install/vmlinuz
-fi
+#~ ls -al $PWD/live
+
+	rm -rf $PWD/boot
+	#~ rm -f binary/install/gtk/vmlinuz
+	#~ rm -f binary/install/vmlinuz
+	rm -f $PWD/live/*686
+	#~ rm -f binary/live/initrd*
+
+#~ ls -al
+
+#~ ls -al $PWD/live
+
+	#~ ln binary/live/vmlinuz-REPLACEME-i386 binary/install/gtk/vmlinuz
+	#~ ln binary/live/vmlinuz-REPLACEME-i386 binary/install/vmlinuz
+	
+#~ ls -al binary/live
+	
+#~ fi
 echo ""
 
 # Delete superfluous non gtk debian installer components, in order to save some space:

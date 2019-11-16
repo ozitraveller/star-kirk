@@ -26,33 +26,3 @@ deb http://deb.devuan.org/merged ascii-updates main contrib non-free
 deb http://deb.devuan.org/merged ascii-backports main contrib non-free
 # deb-src http://auto.mirror.devuan.org/merged/ ascii-backports main contrib non-free
 
-##############################################################
-######################
-##################### UNOFFICIAL  REPOS ######################
-##############################################################
-
-
-#### Google Linux Software Repositories
-# deb http://dl.google.com/linux/chrome/deb/ stable main 
-
-#### VirtualBox
-# deb http://download.virtualbox.org/virtualbox/debian/ ascii contrib 
-
-#### Docker
-# deb [arch=amd64] https://download.docker.com/linux/debian ascii stable
-# deb-src [arch=amd64] https://download.docker.com/linux/debian ascii stable
-
-##############################################################
-# for ascii or later
-# https://dev1galaxy.org/viewtopic.php?pid=5621#p5621
-# apt-get update
-# apt-get install devuan-keyring
-
-
-# https://beta.devuan.org/os/
-#
-# deb http://deb.devuan.org/merged ascii main contrib non-free
-# deb http://deb.devuan.org/merged ascii-updates main contrib non-free
-# deb http://deb.devuan.org/merged ascii-proposed-updates main contrib non-free
-# deb http://deb.devuan.org/merged ascii-security main contrib non-free
-# deb http://deb.devuan.org/merged ascii-backports main contrib non-free

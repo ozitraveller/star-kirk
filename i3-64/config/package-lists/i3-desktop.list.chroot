@@ -16,8 +16,8 @@ leafpad
 
 pcmanfm
 libfm-modules
-gvfs-backends
-gvfs-fuse
+# gvfs-backends
+# gvfs-fuse
 lsof
 
 # spacefm

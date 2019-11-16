@@ -34,6 +34,7 @@ gdebi
 hardinfo 
 synaptic
 galternatives
+# usbpmount
 
 # yad
 # zenity
@@ -41,13 +42,13 @@ galternatives
 i3lock
 suckless-tools 
 # dmenu
-
+# pmount
 # smplayer
 # mpv
 # iceweasel
 # netsurf
 epiphany-browser
-# mirage
+mirage
 # geeqie
 conky-all 
 # file-roller

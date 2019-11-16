@@ -25,6 +25,8 @@ menu
 # geany
 mousepad
 
+yad
+
 thunar
 thunar-data
 thunar-volman
@@ -44,3 +46,6 @@ file-roller
 
 # gnome-brave-icon-theme
 gtk3-engines-xfce
+
+
+# beep brltty espeak espeakup yasr

@@ -7,7 +7,7 @@
 
 # depends : yad, wmctrl
 
-SUSPEND="dbus-send --system --print-reply --dest=\"org.freedesktop.UPower\" /org/freedesktop/UPower org.freedesktop.UPower.Suspend"
+SUSPEND="dbus-send --system --print-reply --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend"
 REBOOT="dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart"
 POWEROFF="dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop"
 
@@ -31,7 +31,7 @@ case $ret in
     case $(wmctrl -m | grep Name) in
         *Openbox) cmd="openbox --exit" ;;
         *JWM) cmd="jwm -exit" ;;
-		*Fluxbox) cmd="fluxbox-remote 'Exit'" ;; 
+	*Fluxbox) cmd="fluxbox-remote 'Exit'" ;; 
         *i3) cmd="i3-msg exit" ;; 
         *) exit 1 ;;
     esac

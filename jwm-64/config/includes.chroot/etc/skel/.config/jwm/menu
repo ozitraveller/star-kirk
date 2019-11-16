@@ -7,11 +7,7 @@
    <RootMenu height="15" onroot="123">
       <Program icon="terminal.png" label="Terminal">x-terminal-emulator</Program>
       <Program icon="thunar.png" label="File Manager">x-file-manager</Program>
-      <Program icon="firefox.png" label="Web Browser">x-www-browser</Program>
-<!-- installer start -->
-      <Separator/>
-	  <Program label="Install Star" confirm="false">su-to-root -X -c /usr/sbin/debian-installer-launcher</Program>	
-<!-- installer end -->	        
+      <Program icon="firefox.png" label="Web Browser">x-www-browser</Program>      
       <Separator/>
       <Menu icon="folder.png" label="Settings">
 		  <Menu icon="folder.png" label="Jwm">
@@ -27,6 +23,7 @@
 			<Program label="Restart" confirm="false">/usr/bin/jwm -restart</Program>
 			<Program label="Reload menu" confirm="false">/usr/bin/jwm -reload</Program>
 		  </Menu>
+		  <Program label="Restart conky" confirm="false">/usr/local/bin/apprestart "conky"</Program>
           <Program label="Display Settings" confirm="false">/usr/bin/arandr</Program>
           <Program label="Appearance" confirm="false">/usr/bin/lxappearance</Program>
       </Menu>
@@ -59,6 +56,8 @@
           <Program label="Pdf Viewer" confirm="false">/usr/bin/xpdf</Program>
       </Menu>
       <Menu icon="folder.png" label="System">
+		  <Program label="Mount removable media" confirm="false">/usr/local/bin/usbpmount.sh</Program>
+		  <Program label="Unmount removable media" confirm="false">/usr/local/bin/usb-unmount.sh</Program>		  
 		  <Program label="Alternatives Configurator" confirm="false">su-to-root -X -c /usr/bin/galternatives</Program>
 		  <Program label="Htop Task Manager" confirm="false">x-terminal-emulator -t 'htop task manager' -e htop</Program>
           <Program label="Bootup-Manager" confirm="false">su-to-root -X -c /usr/bin/bum</Program>
