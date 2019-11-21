@@ -93,7 +93,8 @@ lb config noauto \
 	--security "false" \
 	--updates "false" \
 	--memtest "none" \
-	--win32-loader "false" \
+	--loadlin "false" \
+	--win32-loader "true" \
 	--debug \
 	--verbose \
 	--source "false" \
